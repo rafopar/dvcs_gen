@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--                                             -->
+<!-- Author: ROOT team (rootdev@pcroot.cern.ch)  -->
+<!--                                             -->
+<!--   Date: Thu Aug 30 11:59:54 2012            -->
+<!--                                             -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>TGenDeltPi0 - source file</title>
+<meta name="rating" content="General" />
+<meta name="objecttype" content="Manual" />
+<meta name="keywords" content="software development, oo, object oriented, unix, x11, windows, c++, html, rene brun, fons rademakers, cern" />
+<meta name="description" content="ROOT - An Object Oriented Framework For Large Scale Data Analysis." />
+<link rel="stylesheet" type="text/css" href="../ROOT.css" id="ROOTstyle" />
+<script type="text/javascript" src="../ROOT.js"></script>
+</head>
+<body  onload="javascript:SetValuesFromCookie();">
+<pre class="code">
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenDeltPi0.html">TGenDeltPi0</a>.h, v1.0, Tue Aug 4 11:13:57</span>
+<span class="comment">// Author: C. Munoz Camacho</span>
+<span class="comment">//</span>
+
+<span class="cpp">#ifndef __TGenDeltPi0__</span>
+<span class="cpp">#define __TGenDeltPi0__</span>
+
+<span class="cpp">#ifndef __TGenBase__</span>
+<span class="cpp">#include "<a href="../TGenBase.h">TGenBase.h</a>"</span>
+<span class="cpp">#endif</span>
+
+<span class="cpp">#ifndef ROOT_TLorentzVector</span>
+<span class="cpp">#include "TLorentzVector.h"</span>
+<span class="cpp">#endif</span>
+
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenDeltPi0.html">TGenDeltPi0</a>.h</span>
+<span class="comment">//</span>
+<span class="comment">// DeltPi0 event generator class</span>
+<span class="comment">// </span>
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="keyword">class</span> <a href="../TGenDeltPi0.html">TGenDeltPi0</a> : <span class="keyword">public</span> <a href="../TGenBase.html">TGenBase</a>
+{
+  <span class="keyword">private</span> :
+
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenDeltPi0.html#TGenDeltPi0:fpi0" title="TLorentzVector* TGenDeltPi0::fpi0">fpi0</a>;  <span class="comment">// \pi_0</span>
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenDeltPi0.html#TGenDeltPi0:fg1" title="TLorentzVector* TGenDeltPi0::fg1">fg1</a>;   <span class="comment">// Emitted photon 1    </span>
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenDeltPi0.html#TGenDeltPi0:fg2" title="TLorentzVector* TGenDeltPi0::fg2">fg2</a>;   <span class="comment">// Emitted photon 2   </span>
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenDeltPi0.html#TGenDeltPi0:fp" title="TLorentzVector* TGenDeltPi0::fp">fp</a>;    <span class="comment">// Recoil particle</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:fdeltam" title="Double_t TGenDeltPi0::fdeltam">fdeltam</a>;        <span class="comment">// Delta mass</span>
+
+    <span class="comment">//    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* fq;    // Virtual photon</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenDeltPi0.html#TGenDeltPi0:fSigmaP" title="Double_t TGenDeltPi0::fSigmaP">fSigmaP</a>;   <span class="comment">// Sigma plus cross-section</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenDeltPi0.html#TGenDeltPi0:fSigmaM" title="Double_t TGenDeltPi0::fSigmaM">fSigmaM</a>;   <span class="comment">// Sigma minus cross-section</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenDeltPi0.html#TGenDeltPi0:fPSF" title="Double_t TGenDeltPi0::fPSF">fPSF</a>;      <span class="comment">// Phase space factor of the event</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:ft" title="Double_t TGenDeltPi0::ft">ft</a>;           <span class="comment">// t for the event</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:fs" title="Double_t TGenDeltPi0::fs">fs</a>;           <span class="comment">// s of the reaction</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:fphi" title="Double_t TGenDeltPi0::fphi">fphi</a>;         <span class="comment">// phi of the event</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:ftmin" title="Double_t TGenDeltPi0::ftmin">ftmin</a>;         <span class="comment">// Minimum t for the event</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:ftmax" title="Double_t TGenDeltPi0::ftmax">ftmax</a>;         <span class="comment">// Maximum t for the event</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:ft1" title="Double_t TGenDeltPi0::ft1">ft1</a>;         <span class="comment">// Minimum t for kinematics</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:ft0" title="Double_t TGenDeltPi0::ft0">ft0</a>;         <span class="comment">// Maximum t for kinematics</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:fpcm1" title="Double_t TGenDeltPi0::fpcm1">fpcm1</a>;       <span class="comment">// virtual photon</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:fpcm2" title="Double_t TGenDeltPi0::fpcm2">fpcm2</a>;       <span class="comment">// proton</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:fpcm3" title="Double_t TGenDeltPi0::fpcm3">fpcm3</a>;       <span class="comment">// pi0</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDeltPi0.html#TGenDeltPi0:fpcm4" title="Double_t TGenDeltPi0::fpcm4">fpcm4</a>;       <span class="comment">// delta</span>
+
+
+
+
+  <span class="keyword">public</span> :
+
+  <a href="../TGenDeltPi0.html">TGenDeltPi0</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> Ebeam, <a href="../ListOfTypes.html#Int_t">Int_t</a> TargType, <a href="../ListOfTypes.html#UInt_t">UInt_t</a> seed1=1, <a href="../ListOfTypes.html#UInt_t">UInt_t</a> seed2=2);
+  <a href="../TGenDeltPi0.html">TGenDeltPi0</a>(<span class="keyword">const</span> <a href="../TGenDeltPi0.html">TGenDeltPi0</a>&amp;);
+  <span class="keyword">virtual</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:_TGenDeltPi0" title="void TGenDeltPi0::~TGenDeltPi0()">~TGenDeltPi0</a>();
+
+  <span class="keyword">virtual</span> <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:Print" title="void TGenDeltPi0::Print(char* opt=&quot;&quot;)">Print</a>(<span class="keyword">char</span>* opt=<span class="string">""</span>);
+
+  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:IntRCBef" title="void TGenDeltPi0::IntRCBef()">IntRCBef</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:IntRCAft" title="void TGenDeltPi0::IntRCAft()">IntRCAft</a>(<span class="keyword">void</span>);
+
+  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:Compute2Body" title="void TGenDeltPi0::Compute2Body(Double_t m)">Compute2Body</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> m);
+  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:ComputePi0" title="void TGenDeltPi0::ComputePi0()">ComputePi0</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:ComputeTminTmax" title="void TGenDeltPi0::ComputeTminTmax(Double_t m3,Double_t m4)">ComputeTminTmax</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> m3,<a href="../ListOfTypes.html#Double_t">Double_t</a> m4);
+  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:TwoBodyDecay" title="void TGenDeltPi0::TwoBodyDecay(Double_t M,Double_t m1,Double_t m2)">TwoBodyDecay</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> M, <a href="../ListOfTypes.html#Double_t">Double_t</a> m1, <a href="../ListOfTypes.html#Double_t">Double_t</a> m2);
+  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:ApplySpecVerAcc" title="void TGenDeltPi0::ApplySpecVerAcc(Double_t aav=-1.)">ApplySpecVerAcc</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> aav=-1.);
+<a name="xMWTTB"></a>  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:Settmin" title="void TGenDeltPi0::Settmin(Double_t tmin)">Settmin</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> tmin) { <a href="../TGenDeltPi0.html#TGenDeltPi0:ftmin" title="Double_t TGenDeltPi0::ftmin">ftmin</a>=tmin ; }
+<a name="YDgJbD"></a>  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:Settmax" title="void TGenDeltPi0::Settmax(Double_t tmax)">Settmax</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> tmax) { <a href="../TGenDeltPi0.html#TGenDeltPi0:ftmax" title="Double_t TGenDeltPi0::ftmax">ftmax</a>=tmax ; }
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenDeltPi0.html#TGenDeltPi0:GetFinalPhoton1" title="TLorentzVector* TGenDeltPi0::GetFinalPhoton1()">GetFinalPhoton1</a>(<span class="keyword">void</span>);
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenDeltPi0.html#TGenDeltPi0:GetFinalPhoton2" title="TLorentzVector* TGenDeltPi0::GetFinalPhoton2()">GetFinalPhoton2</a>(<span class="keyword">void</span>);
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenDeltPi0.html#TGenDeltPi0:GetFinalProton" title="TLorentzVector* TGenDeltPi0::GetFinalProton()">GetFinalProton</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDeltPi0.html#TGenDeltPi0:Write2File" title="void TGenDeltPi0::Write2File()">Write2File</a>(<span class="keyword">void</span>);
+
+  ClassDef(<a href="../TGenDeltPi0.html">TGenDeltPi0</a>,1) <span class="comment">// DeltPi0 Event Generator <a href="../TGenDeltPi0.html#TGenDeltPi0:Class" title="TClass* TGenDeltPi0::Class()">Class</a></span>
+
+}; <span class="comment">// End of <a href="../TGenDeltPi0.html">TGenDeltPi0</a> class definition</span>
+
+<span class="cpp">#endif</span>
+</pre>
+
+<br />
+<!--SIGNATURE-->
+
+<em>Last update: Thu Aug 30 11:59:54 2012</em><br />
+
+<hr />
+<em>
+This page has been automatically generated. If you have any comments or suggestions about the page layout send a mail to <a href="mailto:rootdev@root.cern.ch">ROOT support</a>, or contact <a href="mailto:rootdev@root.cern.ch">the developers</a> with any questions or problems regarding ROOT.
+</em>
+</body>
+</html>

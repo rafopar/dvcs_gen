@@ -1,0 +1,595 @@
+%!PS-Adobe-2.0
+%%Title: htmldoc/TGenDVCS_Tree.ps: psCanvas
+%%Creator: ROOT Version 3.10/02
+%%CreationDate: Tue May 17 11:41:57 2005
+%%EndComments
+%%BeginProlog
+/s {stroke} def /l {lineto} def /m {moveto} def /t {translate} def
+/sw {stringwidth} def /r {rotate} def /rl {roll}  def /R {repeat} def
+/d {rlineto} def /rm {rmoveto} def /gr {grestore} def /f {eofill} def
+/c {setrgbcolor} def /lw {setlinewidth} def /sd {setdash} def
+/cl {closepath} def /sf {scalefont setfont} def /black {0 setgray} def
+/box {m dup 0 exch d exch 0 d 0 exch neg d cl} def
+/NC{systemdict begin initclip end}def/C{NC box clip newpath}def
+/bl {box s} def /bf {box f} def /Y { 0 exch d} def /X { 0 d} def 
+/mp {newpath /y exch def /x exch def} def
+/side {[w .77 mul w .23 mul] .385 w mul sd w 0 l currentpoint t -144 r} def
+/mr {mp x y w2 0 360 arc} def /m24 {mr s} def /m20 {mr f} def
+/mb {mp x y w2 add m w2 neg 0 d 0 w neg d w 0 d 0 w d cl} def
+/mt {mp x y w2 add m w2 neg w neg d w 0 d cl} def
+/m21 {mb f} def /m25 {mb s} def /m22 {mt f} def /m26{mt s} def
+/m23 {mp x y w2 sub m w2 w d w neg 0 d cl f} def
+/m27 {mp x y w2 add m w3 neg w2 neg d w3 w2 neg d w3 w2 d cl s} def
+/m28 {mp x w2 sub y w2 sub w3 add m w3 0 d  0 w3 neg d w3 0 d 0 w3 d w3 0 d  0 w3 d w3 neg 0 d 0 w3 d w3 neg 0 d
+ 0 w3 neg d w3 neg 0 d cl s } def
+/m29 {mp gsave x w2 sub y w2 add w3 sub m currentpoint t
+ 4 {side} repeat cl fill gr} def
+/m30 {mp gsave x w2 sub y w2 add w3 sub m currentpoint t
+ 4 {side} repeat cl s gr} def
+/m31 {mp x y w2 sub m 0 w d x w2 sub y m w 0 d x w2 sub y w2 add m w w neg d x w2 sub y w2
+ sub m w w d s} def
+/m2 {mp x y w2 sub m 0 w d x w2 sub y m w 0 d s} def
+/m5 {mp x w2 sub y w2 sub m w w d x w2 sub y w2 add m w w neg d s} def
+/reencdict 24 dict def /ReEncode {reencdict begin /nco&na exch def
+/nfnam exch def /basefontname exch def /basefontdict basefontname findfont def
+/newfont basefontdict maxlength dict def basefontdict {exch dup /FID ne
+{dup /Encoding eq {exch dup length array copy newfont 3 1 roll put} {exch 
+newfont 3 1 roll put} ifelse} {pop pop} ifelse } forall newfont
+/FontName nfnam put nco&na aload pop nco&na length 2 idiv {newfont
+/Encoding get 3 1 roll put} repeat nfnam newfont definefont pop end } def
+/accvec [ 176 /agrave 181 /Agrave 190 /acircumflex 192 /Acircumflex
+201 /adieresis 204 /Adieresis 209 /ccedilla 210 /Ccedilla 211 /eacute
+212 /Eacute 213 /egrave 214 /Egrave 215 /ecircumflex 216 /Ecircumflex
+217 /edieresis 218 /Edieresis 219 /icircumflex 220 /Icircumflex
+221 /idieresis 222 /Idieresis 223 /ntilde 224 /Ntilde 226 /ocircumflex
+228 /Ocircumflex 229 /odieresis 230 /Odieresis 231 /ucircumflex 236 /Ucircumflex
+237 /udieresis 238 /Udieresis 239 /aring 242 /Aring 243 /ydieresis
+244 /Ydieresis 246 /aacute 247 /Aacute 252 /ugrave 253 /Ugrave] def
+/Times-Roman /Times-Roman accvec ReEncode
+/Times-Italic /Times-Italic accvec ReEncode
+/Times-Bold /Times-Bold accvec ReEncode
+/Times-BoldItalic /Times-BoldItalic accvec ReEncode
+/Helvetica /Helvetica accvec ReEncode
+/Helvetica-Oblique /Helvetica-Oblique accvec ReEncode
+/Helvetica-Bold /Helvetica-Bold accvec ReEncode
+/Helvetica-BoldOblique /Helvetica-BoldOblique  accvec ReEncode
+/Courier /Courier accvec ReEncode
+/Courier-Oblique /Courier-Oblique accvec ReEncode
+/Courier-Bold /Courier-Bold accvec ReEncode
+/Courier-BoldOblique /Courier-BoldOblique accvec ReEncode
+/oshow {gsave [] 0 sd true charpath stroke gr} def
+/stwn { /fs exch def /fn exch def /text exch def fn findfont fs sf
+ text sw pop xs add /xs exch def} def
+/stwb { /fs exch def /fn exch def /nbas exch def /textf exch deftextf length /tlen exch def nbas tlen gt {/nbas tlendef} iffn findfont fs sf textf dup length nbas sub nbas getinterval sw
+pop neg xs add /xs exch def} def
+/accspe [ 65 /plusminus  66 /bar  67 /existential  68 /universal 
+69 /exclam  70 /numbersign 71 /greater  72 /question  73 /integral 
+74 /colon  75 /semicolon  76 /less  77 /bracketleft  78 /bracketright
+79 /greaterequal 80 /braceleft 81 /braceright 82 /radical
+83 /spade 84 /heart 85 /diamond 86 /club 87 /lessequal
+88 /multiply 89 /percent 90 /infinity 48 /circlemultiply 49 /circleplus
+50 /emptyset  51 /lozenge 52 /bullet 53 /arrowright 54 /arrowup
+55 /arrowleft 56 /arrowdown 57 /arrowboth 48 /degree 44 /comma 43 /plus 45 /angle 42 /angleleft 47 /divide 61 /notequal 40 /equivalence 41 /second 97 /approxequal 98 /congruent 99 /perpendicular 100 /partialdiff 101 /florin 102 /intersection
+ 103 /union 104 /propersuperset 105 /reflexsuperset 106 /notsubset 107 /propersubset 108 /reflexsubset 109 /element 110 /notelement 111 /gradient 112 /logicaland 113 /logicalor 114 /arrowdblboth 115 /arrowdblleft 116 /arrowdblup 117 /arrowdblright
+ 118 /arrowdbldown 119 /ampersand 120 /omega1 121 /similar 122 /aleph ] def
+/Symbol /Special accspe ReEncode
+/Zone {/iy exch def /ix exch def  ix 1 sub  3144 mul  1 iy sub  2224
+ mul t} def
+%%EndProlog
+%%BeginSetup
+newpath  gsave  90 r 0 -594 t  28 20 t .25 .25 scale  gsave 
+%%EndSetup
+%%Page: number 1
+ gsave  gsave 
+ 1 1 Zone
+ gsave  0 0 t black [] 0 sd 3 lw 1 1 1 c 2948 2211 0 0 bf black 0.95 0.95 0.95 c 785 1323 36 848 bf black 54 848 m -12 Y 779 X 1317 Y -12 X -1305 Y f 36 848 m 1323 Y 785 X -1323 Y -785 X cl s 0.8 0.8 0.8 c 782 55 39 2115 bf black 36 2115 m 785 X s 0
+ 0 1 c
+ /xs 0 def (TObject) /Helvetica-Bold 32.4283 stwn  gsave  429 2122
+ t 0 r xs 2 div neg 0 t 0 0 m /Helvetica-Bold findfont 32.4283 sf 0 0 m (TObject) show  gr 
+ gsave  60 2078
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fUniqueID) show  gr 
+ gsave  60 2042
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fBits) show  gr 
+ gsave  60 2005
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgDtorOnly) show  gr 
+ gsave  60 1969
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgObjectStat) show  gr 
+ gsave  60 1933
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (kIsOnHeap) show  gr 
+ gsave  321 2078
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (kNotDeleted) show  gr 
+ gsave  321 2042
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (kZombie) show  gr 
+ gsave  321 2005
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (kBitMask) show  gr 
+ gsave  321 1969
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (kSingleKey) show  gr 
+ gsave  321 1933
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (kOverwrite) show  gr 
+ gsave  583 2078
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (kWriteDelete) show  gr 
+ gsave  583 2042
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgIsA) show  gr  black 36 1934 m 785 X s 0 0 1 c
+ gsave  60 1879
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (MakeZombie) show  gr 
+ gsave  60 1843
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (DoError) show  gr 
+ gsave  60 1806
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TObject) show  gr 
+ gsave  60 1770
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TObject) show  gr 
+ gsave  60 1734
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator=) show  gr 
+ gsave  60 1698
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (AppendPad) show  gr 
+ gsave  60 1662
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Browse) show  gr 
+ gsave  60 1626
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ClassName) show  gr  0.6 0.6 0.6 c
+ gsave  60 1589
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Clear) show  gr  0 0 1 c
+ gsave  60 1553
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Clone) show  gr 
+ gsave  60 1517
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Compare) show  gr 
+ gsave  60 1481
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Copy) show  gr 
+ gsave  60 1445
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Delete) show  gr 
+ gsave  60 1408
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (DistancetoPrimitive) show  gr 
+ gsave  60 1372
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Draw) show  gr 
+ gsave  60 1336
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (DrawClass) show  gr 
+ gsave  60 1300
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (DrawClone) show  gr 
+ gsave  60 1264
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Dump) show  gr 
+ gsave  60 1228
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Execute) show  gr 
+ gsave  60 1191
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Execute) show  gr 
+ gsave  60 1155
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ExecuteEvent) show  gr 
+ gsave  60 1119
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (FindObject) show  gr 
+ gsave  60 1083
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (FindObject) show  gr 
+ gsave  60 1047
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetDrawOption) show  gr 
+ gsave  60 1010
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetUniqueID) show  gr 
+ gsave  60 974
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetName) show  gr 
+ gsave  60 938
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetIconName) show  gr 
+ gsave  60 902
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetOption) show  gr 
+ gsave  321 1879
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetObjectInfo) show  gr 
+ gsave  321 1843
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetTitle) show  gr 
+ gsave  321 1806
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (HandleTimer) show  gr 
+ gsave  321 1770
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Hash) show  gr 
+ gsave  321 1734
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (InheritsFrom) show  gr 
+ gsave  321 1698
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (InheritsFrom) show  gr 
+ gsave  321 1662
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Inspect) show  gr 
+ gsave  321 1626
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsFolder) show  gr 
+ gsave  321 1589
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsEqual) show  gr 
+ gsave  321 1553
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsSortable) show  gr 
+ gsave  321 1517
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsOnHeap) show  gr 
+ gsave  321 1481
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsZombie) show  gr 
+ gsave  321 1445
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Notify) show  gr 
+ gsave  321 1408
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ls) show  gr 
+ gsave  321 1372
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Paint) show  gr 
+ gsave  321 1336
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Pop) show  gr  0.6 0.6 0.6 c
+ gsave  321 1300
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Print) show  gr  0 0 1 c
+ gsave  321 1264
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Read) show  gr 
+ gsave  321 1228
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (RecursiveRemove) show  gr 
+ gsave  321 1191
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SavePrimitive) show  gr 
+ gsave  321 1155
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetDrawOption) show  gr 
+ gsave  321 1119
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetUniqueID) show  gr 
+ gsave  321 1083
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (UseCurrentStyle) show  gr 
+ gsave  321 1047
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Write) show  gr 
+ gsave  321 1010
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator new) show  gr 
+ gsave  321 974
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator new) show  currentpoint pop 0 t  /Helvetica-Bold findfont 26.5323 sf 0 0 m ([) show  currentpoint pop 0 t  /Helvetica-Bold findfont 26.5323 sf 0 0 m (]) show  gr 
+ gsave  321 938
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator new) show  gr 
+ gsave  321 902
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator new) show  currentpoint pop 0 t  /Helvetica-Bold findfont 26.5323 sf 0 0 m ([) show  currentpoint pop 0 t  /Helvetica-Bold findfont 26.5323 sf 0 0 m (]) show  gr 
+ gsave  583 1879
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator delete) show  gr 
+ gsave  583 1843
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator delete) show  currentpoint pop 0 t  /Helvetica-Bold findfont 26.5323 sf 0 0 m ([) show  currentpoint pop 0 t  /Helvetica-Bold findfont 26.5323 sf 0 0 m (]) show  gr 
+ gsave  583 1806
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator delete) show  gr 
+ gsave  583 1770
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (operator delete) show  currentpoint pop 0 t  /Helvetica-Bold findfont 26.5323 sf 0 0 m ([) show  currentpoint pop 0 t  /Helvetica-Bold findfont 26.5323 sf 0 0 m (]) show  gr 
+ gsave  583 1734
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetBit) show  gr 
+ gsave  583 1698
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetBit) show  gr 
+ gsave  583 1662
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ResetBit) show  gr 
+ gsave  583 1626
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TestBit) show  gr 
+ gsave  583 1589
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TestBits) show  gr 
+ gsave  583 1553
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (InvertBit) show  gr 
+ gsave  583 1517
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Info) show  gr 
+ gsave  583 1481
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Warning) show  gr 
+ gsave  583 1445
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Error) show  gr 
+ gsave  583 1408
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SysError) show  gr 
+ gsave  583 1372
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Fatal) show  gr 
+ gsave  583 1336
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (AbstractMethod) show  gr 
+ gsave  583 1300
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (MayNotUse) show  gr 
+ gsave  583 1264
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetDtorOnly) show  gr 
+ gsave  583 1228
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetDtorOnly) show  gr 
+ gsave  583 1191
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetObjectStat) show  gr 
+ gsave  583 1155
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetObjectStat) show  gr  0.6 0.6 0.6 c
+ gsave  583 1119
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Class) show  gr 
+ gsave  583 1083
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Class_Name) show  gr 
+ gsave  583 1047
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsA) show  gr 
+ gsave  583 1010
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ShowMembers) show  gr 
+ gsave  583 974
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Streamer) show  gr  black 0.95 0.95 0.95 c 523 1178 893 993 bf black 911 993 m -12 Y 517 X 1172 Y -12 X -1160 Y f 893 993 m 1178 Y 523 X -1178 Y -523 X cl s 0.8 0.8 0.8 c 520 55 896 2115 bf
+ black 893 2115 m 523 X s 0 0 1 c
+ /xs 0 def (TGenGeo) /Helvetica-Bold 32.4283 stwn  gsave  1155 2123
+ t 0 r xs 2 div neg 0 t 0 0 m /Helvetica-Bold findfont 32.4283 sf 0 0 m (TGenGeo) show  gr 
+ gsave  909 2079
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fTargType) show  gr 
+ gsave  909 2042
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fTargLength) show  gr 
+ gsave  909 2006
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fTargDens) show  gr 
+ gsave  909 1970
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fm) show  gr 
+ gsave  909 1934
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSpecAngle) show  gr 
+ gsave  909 1898
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSpecMom) show  gr 
+ gsave  909 1862
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fCaloAngle) show  gr 
+ gsave  909 1825
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fCaloDist) show  gr 
+ gsave  909 1789
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSpecHorAcc) show  gr 
+ gsave  909 1753
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSpecVerAcc) show  gr 
+ gsave  909 1717
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSpecMomAcc) show  gr 
+ gsave  909 1681
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSpecHorAccGen) show  gr 
+ gsave  1170 2079
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSpecVerAccGen) show  gr 
+ gsave  1170 2042
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSpecMomAccGen) show  gr 
+ gsave  1170 2006
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fCaloHorAccR) show  gr 
+ gsave  1170 1970
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fCaloHorAccL) show  gr 
+ gsave  1170 1934
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fCaloVerAccU) show  gr 
+ gsave  1170 1898
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fCaloVerAccD) show  gr 
+ gsave  1170 1862
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fPAPolarAccMax) show  gr 
+ gsave  1170 1825
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fPAPolarAccMin) show  gr 
+ gsave  1170 1789
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fPAAzimAccMax) show  gr 
+ gsave  1170 1753
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fPAAzimAccMin) show  gr 
+ gsave  1170 1717
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgIsA) show  gr  black 893 1680 m 523 X s 0 0 1 c
+ gsave  909 1626
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TGenGeo) show  gr 
+ gsave  909 1590
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TGenGeo) show  gr  0.6 0.6 0.6 c
+ gsave  909 1554
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Print) show  gr  0 0 1 c
+ gsave  909 1518
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (PMass) show  gr 
+ gsave  909 1482
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (NMass) show  gr 
+ gsave  909 1445
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (b) show  gr 
+ gsave  909 1409
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Alpha) show  gr 
+ gsave  909 1373
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (PX0) show  gr 
+ gsave  909 1337
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (NX0) show  gr 
+ gsave  909 1301
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetTargetParam) show  gr 
+ gsave  909 1265
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetDefaultAcceptances) show  gr 
+ gsave  909 1228
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetDefaultAcceptancesGen) show  gr 
+ gsave  909 1192
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetSpectroAcceptance) show  gr 
+ gsave  909 1156
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetSpectroAcceptanceGen) show  gr 
+ gsave  909 1120
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetCaloAcceptance) show  gr 
+ gsave  909 1084
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetPAAcceptance) show  gr 
+ gsave  909 1048
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetGeometry) show  gr 
+ gsave  909 1011
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetSpecAngle) show  gr 
+ gsave  1170 1626
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetSpecMomentum) show  gr 
+ gsave  1170 1590
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetCaloAngle) show  gr 
+ gsave  1170 1554
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetCaloDistance) show  gr 
+ gsave  1170 1518
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetSpecAngle) show  gr 
+ gsave  1170 1482
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetSpecMomentum) show  gr 
+ gsave  1170 1445
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetCaloAngle) show  gr 
+ gsave  1170 1409
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetCaloDistance) show  gr 
+ gsave  1170 1373
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetSpecVerAcc) show  gr 
+ gsave  1170 1337
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (HitsSpectro) show  gr 
+ gsave  1170 1301
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (HitsCalo) show  gr 
+ gsave  1170 1265
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (HitsPA) show  gr  0.6 0.6 0.6 c
+ gsave  1170 1228
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Class) show  gr 
+ gsave  1170 1192
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Class_Name) show  gr 
+ gsave  1170 1156
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsA) show  gr 
+ gsave  1170 1120
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ShowMembers) show  gr 
+ gsave  1170 1084
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Streamer) show  gr  black 0.95 0.95 0.95 c 524 1070 1488 1101 bf black 1506 1101 m -11 Y 518 X 1063 Y -12 X -1052 Y f 1488 1101 m 1070 Y 524 X -1070 Y -524 X cl s 0.8 0.8 0.8 c 521 55 1491 2115
+ bf black 1488 2115 m 524 X s 0 0 1 c
+ /xs 0 def (TGenBase) /Helvetica-Bold 32.4283 stwn  gsave  1750 2123
+ t 0 r xs 2 div neg 0 t 0 0 m /Helvetica-Bold findfont 32.4283 sf 0 0 m (TGenBase) show  gr 
+ gsave  1504 2079
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgIsInit) show  gr 
+ gsave  1504 2043
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgWarnings) show  gr 
+ gsave  1504 2007
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgErrors) show  gr 
+ gsave  1504 1971
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (feini) show  gr 
+ gsave  1504 1935
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fpini) show  gr 
+ gsave  1504 1898
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fe) show  gr 
+ gsave  1504 1862
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fq) show  gr 
+ gsave  1504 1826
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fEbeam) show  gr 
+ gsave  1504 1790
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fQ2) show  gr 
+ gsave  1504 1754
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fxb) show  gr 
+ gsave  1504 1718
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fQ2min) show  gr 
+ gsave  1504 1681
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fQ2max) show  gr 
+ gsave  1766 2079
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fxbmin) show  gr 
+ gsave  1766 2043
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fxbmax) show  gr 
+ gsave  1766 2007
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fFermi) show  gr 
+ gsave  1766 1971
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fRadCor) show  gr 
+ gsave  1766 1935
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fVertex) show  gr 
+ gsave  1766 1898
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fRan) show  gr 
+ gsave  1766 1862
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fdmom) show  gr 
+ gsave  1766 1826
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (frho) show  gr 
+ gsave  1766 1790
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (output) show  gr 
+ gsave  1766 1754
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fNwrite) show  gr 
+ gsave  1766 1718
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgIsA) show  gr  black 1488 1680 m 524 X s 0 0 1 c
+ gsave  1504 1627
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TGenBase) show  gr 
+ gsave  1504 1591
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TGenBase) show  gr 
+ gsave  1504 1555
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Init) show  gr  0.6 0.6 0.6 c
+ gsave  1504 1519
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Print) show  gr  0 0 1 c
+ gsave  1504 1482
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetBeamEnergy) show  gr 
+ gsave  1504 1446
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetBeamEnergy) show  gr 
+ gsave  1504 1410
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetRadCor) show  gr 
+ gsave  1504 1374
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetFermi) show  gr 
+ gsave  1504 1338
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetRanGen) show  gr 
+ gsave  1504 1301
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetScatteredElectron) show  gr 
+ gsave  1504 1265
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GenKin) show  gr 
+ gsave  1504 1229
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ComputeElectron) show  gr 
+ gsave  1504 1193
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ExtBrem) show  gr 
+ gsave  1504 1157
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetWarnings) show  gr 
+ gsave  1504 1121
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetErrors) show  gr 
+ gsave  1766 1627
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetVertex) show  gr 
+ gsave  1766 1591
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetVertex) show  gr 
+ gsave  1766 1555
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GenFermiIni) show  gr 
+ gsave  1766 1519
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetQ2) show  gr 
+ gsave  1766 1482
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetQ2) show  gr 
+ gsave  1766 1446
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GenerateVertex) show  gr  0.6 0.6 0.6 c
+ gsave  1766 1410
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ApplySpecVerAcc) show  gr  0 0 1 c
+ gsave  1766 1374
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (DumpFinalFile) show  gr  0.6 0.6 0.6 c
+ gsave  1766 1338
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Clear) show  gr 
+ gsave  1766 1301
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Class) show  gr 
+ gsave  1766 1265
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Class_Name) show  gr 
+ gsave  1766 1229
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsA) show  gr 
+ gsave  1766 1193
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ShowMembers) show  gr 
+ gsave  1766 1157
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Streamer) show  gr  black 0.95 0.95 0.95 c 523 925 2084 1246 bf black 2101 1246 m -12 Y 518 X 919 Y -12 X -907 Y f 2084 1246 m 925 Y 523 X -925 Y -523 X cl s 0.8 0.8 0.8 c 520 55 2087 2115 bf
+ black 2084 2115 m 523 X s 0 0 1 c
+ /xs 0 def (TGenDVCS) /Helvetica-Bold 32.4283 stwn  gsave  2345 2124
+ t 0 r xs 2 div neg 0 t 0 0 m /Helvetica-Bold findfont 32.4283 sf 0 0 m (TGenDVCS) show  gr 
+ gsave  2099 2080
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fg) show  gr 
+ gsave  2099 2044
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fp) show  gr 
+ gsave  2099 2008
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSigmaP) show  gr 
+ gsave  2099 1972
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fSigmaM) show  gr 
+ gsave  2099 1935
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fPSF) show  gr 
+ gsave  2099 1899
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ft) show  gr 
+ gsave  2099 1863
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fs) show  gr 
+ gsave  2099 1827
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fphi) show  gr 
+ gsave  2099 1791
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ftmin) show  gr 
+ gsave  2099 1755
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ftmax) show  gr 
+ gsave  2099 1718
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fphasespace) show  gr 
+ gsave  2361 2080
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fdterm) show  gr 
+ gsave  2361 2044
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fDD) show  gr 
+ gsave  2361 2008
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fpipole) show  gr 
+ gsave  2361 1972
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ftdep) show  gr 
+ gsave  2361 1935
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fprop) show  gr 
+ gsave  2361 1899
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fb) show  gr 
+ gsave  2361 1863
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ftcoef) show  gr 
+ gsave  2361 1827
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fJu) show  gr 
+ gsave  2361 1791
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fJd) show  gr 
+ gsave  2361 1755
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (fgIsA) show  gr  black 2084 1717 m 523 X s 0 0 1 c
+ gsave  2099 1664
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TGenDVCS) show  gr 
+ gsave  2099 1628
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (TGenDVCS) show  gr 
+ gsave  2099 1592
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Print) show  gr 
+ gsave  2099 1556
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IntRCBef) show  gr 
+ gsave  2099 1519
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IntRCAft) show  gr 
+ gsave  2099 1483
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ComputeDVCS) show  gr 
+ gsave  2099 1447
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Compute2Body) show  gr 
+ gsave  2099 1411
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ApplySpecVerAcc) show  gr 
+ gsave  2099 1375
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetFastWeight) show  gr 
+ gsave  2099 1338
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Settmin) show  gr 
+ gsave  2099 1302
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Settmax) show  gr 
+ gsave  2099 1266
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (SetTheoryParam) show  gr 
+ gsave  2361 1664
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (XSec) show  gr 
+ gsave  2361 1628
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetFinalPhoton) show  gr 
+ gsave  2361 1592
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (GetFinalProton) show  gr 
+ gsave  2361 1556
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Write2File) show  gr 
+ gsave  2361 1519
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Clear) show  gr 
+ gsave  2361 1483
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Class) show  gr 
+ gsave  2361 1447
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Class_Name) show  gr 
+ gsave  2361 1411
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (IsA) show  gr 
+ gsave  2361 1375
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (ShowMembers) show  gr 
+ gsave  2361 1338
+ t 0 r 0 0 m /Helvetica-Bold findfont 26.5323 sf 0 0 m (Streamer) show  gr  gr 
+showpage
+ gr 
+%%Trailer
+%%Pages:  1
+ gr  gr  gr 
+%%EOF

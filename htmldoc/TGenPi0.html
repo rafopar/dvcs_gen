@@ -1,0 +1,465 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--                                             -->
+<!-- Author: ROOT team (rootdev@cern.ch)         -->
+<!--                                             -->
+<!--   Date: Mon Nov 10 17:42:39 2014            -->
+<!--                                             -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>TGenPi0</title>
+<meta name="rating" content="General" />
+<meta name="objecttype" content="Manual" />
+<meta name="keywords" content="software development, oo, object oriented, unix, x11, windows, c++, html, rene brun, fons rademakers, cern" />
+<meta name="description" content="ROOT - An Object Oriented Framework For Large Scale Data Analysis." />
+<link rel="stylesheet" type="text/css" href="ROOT.css" id="ROOTstyle" />
+<script type="text/javascript" src="ROOT.js"></script>
+</head>
+<body  onload="javascript:SetValuesFromCookie();"><div id="body_content">
+<div id="root_header"><img src="http://root.cern.ch/drupal/sites/default/files/rootdrawing-logo.png" alt="ROOT logo"/></div>
+<a name="TopOfPage"></a>
+<script type="text/javascript">WriteFollowPageBox('class TGenPi0','','TGenPi0.h');</script>
+<div id="toplinks">
+<div class="descrhead"><div class="descrheadcontent">
+<span class="descrtitle">Quick Links:</span>
+<a class="descrheadentry" href="http://root.cern.ch">ROOT Homepage</a>
+<a class="descrheadentry" href="./ClassIndex.html">Class Index</a>
+<a class="descrheadentry" href="./ClassHierarchy.html">Class Hierarchy</a></div>
+<script type="text/javascript">
+function onSearch() {
+var s='http://www.google.com/search?q=%s+site%3A%u+-site%3A%u%2Fsrc%2F+-site%3A%u%2Fexamples%2F';
+var ref=String(document.location.href).replace(/https?:\/\//,'').replace(/\/[^\/]*$/,'').replace(/\//g,'%2F');
+window.location.href=s.replace(/%u/ig,ref).replace(/%s/ig,escape(document.searchform.t.value));
+return false;}
+</script>
+<form id="searchform" name="searchform" onsubmit="return onSearch()" action="javascript:onSearch();" method="post">
+<input name="t" size="30" value="Search documentation..." onfocus="if (document.searchform.t.value=='Search documentation...') document.searchform.t.value='';"></input>
+<a id="searchlink"  title="www.google.com"  href="javascript:onSearch();" onclick="return onSearch()">Search</a></form>
+</div>
+<div class="descrhead"><div class="descrheadcontent">
+<span class="descrtitle">Source:</span>
+<a class="descrheadentry" href="src/TGenPi0.h.html">header file</a>
+<a class="descrheadentry" href="src/TGenPi0.cxx.html">source file</a>
+<a class="descrheadentry" href="http://root.cern.ch/viewcvs/trunk/TGenPi0.h?view=log">viewVC header</a> <a class="descrheadentry" href="http://root.cern.ch/viewcvs/trunk/TGenPi0.cxx?view=log">viewVC source</a> 
+</div></div>
+<div class="descrhead"><div class="descrheadcontent">
+<span class="descrtitle">Sections:</span>
+<a class="descrheadentry" href="#TGenPi0:description">class description</a> 
+<a class="descrheadentry" href="#TGenPi0:Function_Members">function members</a>
+<a class="descrheadentry" href="#TGenPi0:Data_Members">data members</a>
+<a class="descrheadentry" href="#TGenPi0:Class_Charts">class charts</a>
+</div></div>
+</div>
+<div class="location">
+<a class="locationlevel" href="index.html">(UNKNOWN PRODUCT)</a>
+ &#187; <a class="locationlevel" href="./._Index.html">.</a>
+ &#187; <a class="locationlevel" href="#TopOfPage">TGenPi0</a>
+</div>
+<div class="dropshadow"><div class="withshadow"><h1><a name="TGenPi0:description"></a>class TGenPi0: public <a href="./TGenBase.html">TGenBase</a></h1>
+<div class="classdescr">
+<pre>
+
+ Event generator base class
+
+
+</pre></div>
+</div></div>
+
+<div id="functions">
+<h2><a id="TGenPi0:Function_Members"></a>Function Members (Methods)</h2>
+<div class="access" id="funcpubl"><b>public:</b>
+<table class="func" id="tabfuncpubl" cellspacing="0">
+<tr class="func"><td class="funcret"></td><td class="funcname"><a class="funcname" href="#TGenPi0:TGenPi0@1">TGenPi0</a>(<span class="keyword">const</span> <a href="./TGenPi0.html">TGenPi0</a>&amp;)</td></tr>
+<tr class="func"><td class="funcret"></td><td class="funcname"><a class="funcname" href="#TGenPi0:TGenPi0">TGenPi0</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> Ebeam, <a href="./ListOfTypes.html#Int_t">Int_t</a> TargType, <a href="./ListOfTypes.html#UInt_t">UInt_t</a> seed1 = 1, <a href="./ListOfTypes.html#UInt_t">UInt_t</a> seed2 = 2)</td></tr>
+<tr class="func"><td class="funcret"> virtual</td><td class="funcname"><a class="funcname" href="#TGenPi0:_TGenPi0">~TGenPi0</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:AbstractMethod"><span class="baseclass">TObject::</span>AbstractMethod</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">static <a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:Alpha"><span class="baseclass">TGenGeo::</span>Alpha</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:AppendPad"><span class="baseclass">TObject::</span>AppendPad</a>(<a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>)</td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:ApplySpecVerAcc">ApplySpecVerAcc</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> aav = -1.)</td></tr>
+<tr class="funcinh"><td class="funcret">static <a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:b"><span class="baseclass">TGenGeo::</span>b</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Browse"><span class="baseclass">TObject::</span>Browse</a>(TBrowser* <a href="./TGenGeo.html#TGenGeo:b" title="Double_t TGenGeo::b()">b</a>)</td></tr>
+<tr class="func"><td class="funcret">static TClass*</td><td class="funcname"><a class="funcname" href="#TGenPi0:Class">Class</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">const</span> <span class="keyword">char</span>*</td><td class="funcname"><a class="funcname" href="#TObject:ClassName"><span class="baseclass">TObject::</span>ClassName</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:Clear"><span class="baseclass">TGenBase::</span>Clear</a>(<span class="keyword">char</span>* opt = <span class="string">""</span>)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>*</td><td class="funcname"><a class="funcname" href="#TObject:Clone"><span class="baseclass">TObject::</span>Clone</a>(<span class="keyword">const</span> <span class="keyword">char</span>* newname = <span class="string">""</span>) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:CloseTmpFile"><span class="baseclass">TGenBase::</span>CloseTmpFile</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="funcname"><a class="funcname" href="#TObject:Compare"><span class="baseclass">TObject::</span>Compare</a>(<span class="keyword">const</span> <a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>* obj) <span class="keyword">const</span></td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:Compute2Body">Compute2Body</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> m)</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:ComputeElectron"><span class="baseclass">TGenBase::</span>ComputeElectron</a>()</td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:ComputePi0">ComputePi0</a>()</td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:ComputeTminTmax">ComputeTminTmax</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> m3, <a href="./ListOfTypes.html#Double_t">Double_t</a> m4)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Copy"><span class="baseclass">TObject::</span>Copy</a>(<a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>&amp; object) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Delete"><span class="baseclass">TObject::</span>Delete</a>(<a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>)<span class="funcprop"><abbr title="has a popup menu entry">MENU</abbr> </span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="funcname"><a class="funcname" href="#TObject:DistancetoPrimitive"><span class="baseclass">TObject::</span>DistancetoPrimitive</a>(<a href="./ListOfTypes.html#Int_t">Int_t</a> px, <a href="./ListOfTypes.html#Int_t">Int_t</a> py)</td></tr>
+<tr class="funcinh"><td class="funcret">static <a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:DMass"><span class="baseclass">TGenGeo::</span>DMass</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Draw"><span class="baseclass">TObject::</span>Draw</a>(<a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:DrawClass"><span class="baseclass">TObject::</span>DrawClass</a>() <span class="keyword">const</span><span class="funcprop"><abbr title="has a popup menu entry">MENU</abbr> </span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>*</td><td class="funcname"><a class="funcname" href="#TObject:DrawClone"><span class="baseclass">TObject::</span>DrawClone</a>(<a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>) <span class="keyword">const</span><span class="funcprop"><abbr title="has a popup menu entry">MENU</abbr> </span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Dump"><span class="baseclass">TObject::</span>Dump</a>() <span class="keyword">const</span><span class="funcprop"><abbr title="has a popup menu entry">MENU</abbr> </span></td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:DumpFinalFile"><span class="baseclass">TGenBase::</span>DumpFinalFile</a>(<span class="keyword">char</span>* finalfile, <a href="./ListOfTypes.html#Int_t">Int_t</a> Ngen, <a href="./ListOfTypes.html#Int_t">Int_t</a> Nacc)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Error"><span class="baseclass">TObject::</span>Error</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method, <span class="keyword">const</span> <span class="keyword">char</span>* msgfmt) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Execute"><span class="baseclass">TObject::</span>Execute</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method, <span class="keyword">const</span> <span class="keyword">char</span>* params, <a href="./ListOfTypes.html#Int_t">Int_t</a>* error = 0)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Execute@1"><span class="baseclass">TObject::</span>Execute</a>(TMethod* method, TObjArray* params, <a href="./ListOfTypes.html#Int_t">Int_t</a>* error = 0)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:ExecuteEvent"><span class="baseclass">TObject::</span>ExecuteEvent</a>(<a href="./ListOfTypes.html#Int_t">Int_t</a> event, <a href="./ListOfTypes.html#Int_t">Int_t</a> px, <a href="./ListOfTypes.html#Int_t">Int_t</a> py)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:ExtBrem"><span class="baseclass">TGenBase::</span>ExtBrem</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Fatal"><span class="baseclass">TObject::</span>Fatal</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method, <span class="keyword">const</span> <span class="keyword">char</span>* msgfmt) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>*</td><td class="funcname"><a class="funcname" href="#TObject:FindObject"><span class="baseclass">TObject::</span>FindObject</a>(<span class="keyword">const</span> <span class="keyword">char</span>* name) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>*</td><td class="funcname"><a class="funcname" href="#TObject:FindObject@1"><span class="baseclass">TObject::</span>FindObject</a>(<span class="keyword">const</span> <a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>* obj) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GenerateVertex"><span class="baseclass">TGenBase::</span>GenerateVertex</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">TLorentzVector*</td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GenFermiIni"><span class="baseclass">TGenBase::</span>GenFermiIni</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GenKin"><span class="baseclass">TGenBase::</span>GenKin</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GenKinCLAS"><span class="baseclass">TGenBase::</span>GenKinCLAS</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GenKinGen"><span class="baseclass">TGenBase::</span>GenKinGen</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GetBeamEnergy"><span class="baseclass">TGenBase::</span>GetBeamEnergy</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:GetCaloAngle"><span class="baseclass">TGenGeo::</span>GetCaloAngle</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:GetCaloDistance"><span class="baseclass">TGenGeo::</span>GetCaloDistance</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Option_t">Option_t</a>*</td><td class="funcname"><a class="funcname" href="#TObject:GetDrawOption"><span class="baseclass">TObject::</span>GetDrawOption</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">static <a href="./ListOfTypes.html#Long_t">Long_t</a></td><td class="funcname"><a class="funcname" href="#TObject:GetDtorOnly"><span class="baseclass">TObject::</span>GetDtorOnly</a>()</td></tr>
+<tr class="func"><td class="funcret">TLorentzVector*</td><td class="funcname"><a class="funcname" href="#TGenPi0:GetFinalPhoton1">GetFinalPhoton1</a>()</td></tr>
+<tr class="func"><td class="funcret">TLorentzVector*</td><td class="funcname"><a class="funcname" href="#TGenPi0:GetFinalPhoton2">GetFinalPhoton2</a>()</td></tr>
+<tr class="func"><td class="funcret">TLorentzVector*</td><td class="funcname"><a class="funcname" href="#TGenPi0:GetFinalProton">GetFinalProton</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">const</span> <span class="keyword">char</span>*</td><td class="funcname"><a class="funcname" href="#TObject:GetIconName"><span class="baseclass">TObject::</span>GetIconName</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">TLorentzVector*</td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GetInitialElectron"><span class="baseclass">TGenBase::</span>GetInitialElectron</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">const</span> <span class="keyword">char</span>*</td><td class="funcname"><a class="funcname" href="#TObject:GetName"><span class="baseclass">TObject::</span>GetName</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">char</span>*</td><td class="funcname"><a class="funcname" href="#TObject:GetObjectInfo"><span class="baseclass">TObject::</span>GetObjectInfo</a>(<a href="./ListOfTypes.html#Int_t">Int_t</a> px, <a href="./ListOfTypes.html#Int_t">Int_t</a> py) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">static <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:GetObjectStat"><span class="baseclass">TObject::</span>GetObjectStat</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Option_t">Option_t</a>*</td><td class="funcname"><a class="funcname" href="#TObject:GetOption"><span class="baseclass">TObject::</span>GetOption</a>() <span class="keyword">const</span></td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">double</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:GetPSF">GetPSF</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GetQ2"><span class="baseclass">TGenBase::</span>GetQ2</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">TRandom2*</td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GetRanGen"><span class="baseclass">TGenBase::</span>GetRanGen</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">TLorentzVector*</td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GetScatteredElectron"><span class="baseclass">TGenBase::</span>GetScatteredElectron</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:GetSpecAngle"><span class="baseclass">TGenGeo::</span>GetSpecAngle</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:GetSpecMomentum"><span class="baseclass">TGenGeo::</span>GetSpecMomentum</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:GetSpecVerAcc"><span class="baseclass">TGenGeo::</span>GetSpecVerAcc</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">const</span> <span class="keyword">char</span>*</td><td class="funcname"><a class="funcname" href="#TObject:GetTitle"><span class="baseclass">TObject::</span>GetTitle</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#UInt_t">UInt_t</a></td><td class="funcname"><a class="funcname" href="#TObject:GetUniqueID"><span class="baseclass">TObject::</span>GetUniqueID</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">TVector3*</td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GetVertex"><span class="baseclass">TGenBase::</span>GetVertex</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:GetXb"><span class="baseclass">TGenBase::</span>GetXb</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:HandleTimer"><span class="baseclass">TObject::</span>HandleTimer</a>(TTimer* timer)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#ULong_t">ULong_t</a></td><td class="funcname"><a class="funcname" href="#TObject:Hash"><span class="baseclass">TObject::</span>Hash</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:HitsCalo"><span class="baseclass">TGenGeo::</span>HitsCalo</a>(TLorentzVector* g)</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:HitsPA"><span class="baseclass">TGenGeo::</span>HitsPA</a>(TLorentzVector* p)</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:HitsSpectro"><span class="baseclass">TGenGeo::</span>HitsSpectro</a>(TLorentzVector* e)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Info"><span class="baseclass">TObject::</span>Info</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method, <span class="keyword">const</span> <span class="keyword">char</span>* msgfmt) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:InheritsFrom"><span class="baseclass">TObject::</span>InheritsFrom</a>(<span class="keyword">const</span> <span class="keyword">char</span>* classname) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:InheritsFrom@1"><span class="baseclass">TObject::</span>InheritsFrom</a>(<span class="keyword">const</span> TClass* cl) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:Init"><span class="baseclass">TGenBase::</span>Init</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Inspect"><span class="baseclass">TObject::</span>Inspect</a>() <span class="keyword">const</span><span class="funcprop"><abbr title="has a popup menu entry">MENU</abbr> </span></td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:IntRCAft">IntRCAft</a>()</td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:IntRCBef">IntRCBef</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:InvertBit"><span class="baseclass">TObject::</span>InvertBit</a>(<a href="./ListOfTypes.html#UInt_t">UInt_t</a> f)</td></tr>
+<tr class="func"><td class="funcret">virtual TClass*</td><td class="funcname"><a class="funcname" href="#TGenPi0:IsA">IsA</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:IsEqual"><span class="baseclass">TObject::</span>IsEqual</a>(<span class="keyword">const</span> <a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>* obj) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:IsFolder"><span class="baseclass">TObject::</span>IsFolder</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:IsOnHeap"><span class="baseclass">TObject::</span>IsOnHeap</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:IsSortable"><span class="baseclass">TObject::</span>IsSortable</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:IsZombie"><span class="baseclass">TObject::</span>IsZombie</a>() <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:ls"><span class="baseclass">TObject::</span>ls</a>(<a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:MayNotUse"><span class="baseclass">TObject::</span>MayNotUse</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">static <a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:NMass"><span class="baseclass">TGenGeo::</span>NMass</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:Notify"><span class="baseclass">TObject::</span>Notify</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:NX0"><span class="baseclass">TGenGeo::</span>NX0</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Obsolete"><span class="baseclass">TObject::</span>Obsolete</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method, <span class="keyword">const</span> <span class="keyword">char</span>* asOfVers, <span class="keyword">const</span> <span class="keyword">char</span>* removedFromVers) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">static <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:operator_delete"><span class="baseclass">TObject::</span>operator delete</a>(<span class="keyword">void</span>* ptr)</td></tr>
+<tr class="funcinh"><td class="funcret">static <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:operator_delete@1"><span class="baseclass">TObject::</span>operator delete</a>(<span class="keyword">void</span>* ptr, <span class="keyword">void</span>* vp)</td></tr>
+<tr class="funcinh"><td class="funcret">static <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:operator_delete[]"><span class="baseclass">TObject::</span>operator delete[]</a>(<span class="keyword">void</span>* ptr)</td></tr>
+<tr class="funcinh"><td class="funcret">static <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:operator_delete[]@1"><span class="baseclass">TObject::</span>operator delete[]</a>(<span class="keyword">void</span>* ptr, <span class="keyword">void</span>* vp)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span>*</td><td class="funcname"><a class="funcname" href="#TObject:operator_new"><span class="baseclass">TObject::</span>operator new</a>(<a href="./ListOfTypes.html#size_t">size_t</a> sz)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span>*</td><td class="funcname"><a class="funcname" href="#TObject:operator_new@1"><span class="baseclass">TObject::</span>operator new</a>(<a href="./ListOfTypes.html#size_t">size_t</a> sz, <span class="keyword">void</span>* vp)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span>*</td><td class="funcname"><a class="funcname" href="#TObject:operator_new[]"><span class="baseclass">TObject::</span>operator new[]</a>(<a href="./ListOfTypes.html#size_t">size_t</a> sz)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span>*</td><td class="funcname"><a class="funcname" href="#TObject:operator_new[]@1"><span class="baseclass">TObject::</span>operator new[]</a>(<a href="./ListOfTypes.html#size_t">size_t</a> sz, <span class="keyword">void</span>* vp)</td></tr>
+<tr class="func"><td class="funcret"><a href="./TGenPi0.html">TGenPi0</a>&amp;</td><td class="funcname"><a class="funcname" href="#TGenPi0:operator_">operator=</a>(<span class="keyword">const</span> <a href="./TGenPi0.html">TGenPi0</a>&amp;)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Paint"><span class="baseclass">TObject::</span>Paint</a>(<a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>)</td></tr>
+<tr class="funcinh"><td class="funcret">static <a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:PMass"><span class="baseclass">TGenGeo::</span>PMass</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Pop"><span class="baseclass">TObject::</span>Pop</a>()</td></tr>
+<tr class="func"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:Print">Print</a>(<span class="keyword">char</span>* opt = <span class="string">""</span>)</td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:PX0"><span class="baseclass">TGenGeo::</span>PX0</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="funcname"><a class="funcname" href="#TObject:Read"><span class="baseclass">TObject::</span>Read</a>(<span class="keyword">const</span> <span class="keyword">char</span>* name)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:RecursiveRemove"><span class="baseclass">TObject::</span>RecursiveRemove</a>(<a href="./#TObject:TObject" title="TObject TObject::TObject() or overloads">TObject</a>* obj)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:ResetBit"><span class="baseclass">TObject::</span>ResetBit</a>(<a href="./ListOfTypes.html#UInt_t">UInt_t</a> f)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SaveAs"><span class="baseclass">TObject::</span>SaveAs</a>(<span class="keyword">const</span> <span class="keyword">char</span>* filename = <span class="string">""</span>, <a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>) <span class="keyword">const</span><span class="funcprop"><abbr title="has a popup menu entry">MENU</abbr> </span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SavePrimitive"><span class="baseclass">TObject::</span>SavePrimitive</a>(<a href="./ListOfTypes.html#ostream">ostream</a>&amp; out, <a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetBeamEnergy"><span class="baseclass">TGenBase::</span>SetBeamEnergy</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> ebeam)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SetBit@1"><span class="baseclass">TObject::</span>SetBit</a>(<a href="./ListOfTypes.html#UInt_t">UInt_t</a> f)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SetBit"><span class="baseclass">TObject::</span>SetBit</a>(<a href="./ListOfTypes.html#UInt_t">UInt_t</a> f, <a href="./ListOfTypes.html#Bool_t">Bool_t</a> set)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetCaloAcceptance"><span class="baseclass">TGenGeo::</span>SetCaloAcceptance</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> HorAccR, <a href="./ListOfTypes.html#Double_t">Double_t</a> HorAccL, <a href="./ListOfTypes.html#Double_t">Double_t</a> VerAccU, <a href="./ListOfTypes.html#Double_t">Double_t</a> VerAccD)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetCaloAngle"><span class="baseclass">TGenGeo::</span>SetCaloAngle</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> CaloAngle)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetCaloDistance"><span class="baseclass">TGenGeo::</span>SetCaloDistance</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> CaloDist)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetDefaultAcceptances"><span class="baseclass">TGenGeo::</span>SetDefaultAcceptances</a>()</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetDefaultAcceptancesGen"><span class="baseclass">TGenGeo::</span>SetDefaultAcceptancesGen</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SetDrawOption"><span class="baseclass">TObject::</span>SetDrawOption</a>(<a href="./ListOfTypes.html#Option_t">Option_t</a>* option = <span class="string">""</span>)<span class="funcprop"><abbr title="has a popup menu entry">MENU</abbr> </span></td></tr>
+<tr class="funcinh"><td class="funcret">static <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SetDtorOnly"><span class="baseclass">TObject::</span>SetDtorOnly</a>(<span class="keyword">void</span>* obj)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetErrors"><span class="baseclass">TGenBase::</span>SetErrors</a>(<a href="./ListOfTypes.html#Bool_t">Bool_t</a> val)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetFermi"><span class="baseclass">TGenBase::</span>SetFermi</a>(<a href="./ListOfTypes.html#Bool_t">Bool_t</a> fm = <a href="./ListOfTypes.html#Bool_t">kTRUE</a>)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetGeometry"><span class="baseclass">TGenGeo::</span>SetGeometry</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> SpecAngle, <a href="./ListOfTypes.html#Double_t">Double_t</a> SpecMom, <a href="./ListOfTypes.html#Double_t">Double_t</a> CaloAngle, <a href="./ListOfTypes.html#Double_t">Double_t</a> CaloDist)</td></tr>
+<tr class="funcinh"><td class="funcret">static <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SetObjectStat"><span class="baseclass">TObject::</span>SetObjectStat</a>(<a href="./ListOfTypes.html#Bool_t">Bool_t</a> stat)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetPAAcceptance"><span class="baseclass">TGenGeo::</span>SetPAAcceptance</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> PolAccMax, <a href="./ListOfTypes.html#Double_t">Double_t</a> PolAccMin, <a href="./ListOfTypes.html#Double_t">Double_t</a> AzimAccMax, <a href="./ListOfTypes.html#Double_t">Double_t</a> AzimAccMin)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetQ2"><span class="baseclass">TGenBase::</span>SetQ2</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> q2)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetRadCor"><span class="baseclass">TGenBase::</span>SetRadCor</a>(<a href="./ListOfTypes.html#Bool_t">Bool_t</a> rc = <a href="./ListOfTypes.html#Bool_t">kTRUE</a>)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetSpecAngle"><span class="baseclass">TGenGeo::</span>SetSpecAngle</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> SpecAngle)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetSpecMomentum"><span class="baseclass">TGenGeo::</span>SetSpecMomentum</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> SpecMom)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetSpectroAcceptance"><span class="baseclass">TGenGeo::</span>SetSpectroAcceptance</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> HorAcc, <a href="./ListOfTypes.html#Double_t">Double_t</a> VerAcc, <a href="./ListOfTypes.html#Double_t">Double_t</a> MomAcc)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetSpectroAcceptanceGen"><span class="baseclass">TGenGeo::</span>SetSpectroAcceptanceGen</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> HorAcc, <a href="./ListOfTypes.html#Double_t">Double_t</a> VerAcc, <a href="./ListOfTypes.html#Double_t">Double_t</a> MomAcc)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetTargetParam@1"><span class="baseclass">TGenGeo::</span>SetTargetParam</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> targlength, <a href="./ListOfTypes.html#Double_t">Double_t</a> targden)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenGeo.html#TGenGeo:SetTargetParam"><span class="baseclass">TGenGeo::</span>SetTargetParam</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> targlength, <a href="./ListOfTypes.html#Double_t">Double_t</a> targzoffset, <a href="./ListOfTypes.html#Double_t">Double_t</a> targden)</td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:Settmax">Settmax</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> tmax)</td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:Settmin">Settmin</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> tmin)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SetUniqueID"><span class="baseclass">TObject::</span>SetUniqueID</a>(<a href="./ListOfTypes.html#UInt_t">UInt_t</a> uid)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetVertex@1"><span class="baseclass">TGenBase::</span>SetVertex</a>(TVector3* vertex)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetVertex"><span class="baseclass">TGenBase::</span>SetVertex</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> x, <a href="./ListOfTypes.html#Double_t">Double_t</a> y, <a href="./ListOfTypes.html#Double_t">Double_t</a> z)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetWarnings"><span class="baseclass">TGenBase::</span>SetWarnings</a>(<a href="./ListOfTypes.html#Bool_t">Bool_t</a> val)</td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="./TGenBase.html#TGenBase:SetXb"><span class="baseclass">TGenBase::</span>SetXb</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> xb)</td></tr>
+<tr class="func"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:ShowMembers">ShowMembers</a>(TMemberInspector&amp;)</td></tr>
+<tr class="func"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:Streamer">Streamer</a>(TBuffer&amp;)</td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:StreamerNVirtual">StreamerNVirtual</a>(TBuffer&amp; ClassDef_StreamerNVirtual_b)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:SysError"><span class="baseclass">TObject::</span>SysError</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method, <span class="keyword">const</span> <span class="keyword">char</span>* msgfmt) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="funcname"><a class="funcname" href="#TObject:TestBit"><span class="baseclass">TObject::</span>TestBit</a>(<a href="./ListOfTypes.html#UInt_t">UInt_t</a> f) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="funcname"><a class="funcname" href="#TObject:TestBits"><span class="baseclass">TObject::</span>TestBits</a>(<a href="./ListOfTypes.html#UInt_t">UInt_t</a> f) <span class="keyword">const</span></td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:TwoBodyDecay">TwoBodyDecay</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> M, <a href="./ListOfTypes.html#Double_t">Double_t</a> m1, <a href="./ListOfTypes.html#Double_t">Double_t</a> m2)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:UseCurrentStyle"><span class="baseclass">TObject::</span>UseCurrentStyle</a>()</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:Warning"><span class="baseclass">TObject::</span>Warning</a>(<span class="keyword">const</span> <span class="keyword">char</span>* method, <span class="keyword">const</span> <span class="keyword">char</span>* msgfmt) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="funcname"><a class="funcname" href="#TObject:Write"><span class="baseclass">TObject::</span>Write</a>(<span class="keyword">const</span> <span class="keyword">char</span>* name = 0, <a href="./ListOfTypes.html#Int_t">Int_t</a> option = 0, <a href="./ListOfTypes.html#Int_t">Int_t</a> bufsize = 0)</td></tr>
+<tr class="funcinh"><td class="funcret">virtual <a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="funcname"><a class="funcname" href="#TObject:Write@1"><span class="baseclass">TObject::</span>Write</a>(<span class="keyword">const</span> <span class="keyword">char</span>* name = 0, <a href="./ListOfTypes.html#Int_t">Int_t</a> option = 0, <a href="./ListOfTypes.html#Int_t">Int_t</a> bufsize = 0) <span class="keyword">const</span></td></tr>
+<tr class="func"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TGenPi0:Write2File">Write2File</a>()</td></tr>
+
+</table></div>
+<div class="access" id="funcprot"><b>protected:</b>
+<table class="func" id="tabfuncprot" cellspacing="0">
+<tr class="funcinh"><td class="funcret">virtual <span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:DoError"><span class="baseclass">TObject::</span>DoError</a>(<span class="keyword">int</span> level, <span class="keyword">const</span> <span class="keyword">char</span>* location, <span class="keyword">const</span> <span class="keyword">char</span>* fmt, va_list va) <span class="keyword">const</span></td></tr>
+<tr class="funcinh"><td class="funcret"><span class="keyword">void</span></td><td class="funcname"><a class="funcname" href="#TObject:MakeZombie"><span class="baseclass">TObject::</span>MakeZombie</a>()</td></tr>
+
+</table></div>
+</div>
+
+<div id="datamembers">
+<h2><a name="TGenPi0:Data_Members"></a>Data Members</h2>
+<div class="access" id="enumpubl"><b>public:</b>
+<table class="data" id="tabenumpubl" cellspacing="0">
+<tr class="datainh"><td class="datatype">enum <span class="baseclass">TObject::</span>EStatusBits { </td><td class="dataname"><a href="#TObject:kCanDelete">kCanDelete</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kMustCleanup">kMustCleanup</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kObjInCanvas">kObjInCanvas</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kIsReferenced">kIsReferenced</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kHasUUID">kHasUUID</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kCannotPick">kCannotPick</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kNoContextMenu">kNoContextMenu</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kInvalidObject">kInvalidObject</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype">};</td><td></td><td></td></tr>
+<tr class="datainh"><td class="datatype">enum <span class="baseclass">TObject::</span><i>[unnamed]</i> { </td><td class="dataname"><a href="#TObject:kIsOnHeap">kIsOnHeap</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kNotDeleted">kNotDeleted</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kZombie">kZombie</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kBitMask">kBitMask</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kSingleKey">kSingleKey</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kOverwrite">kOverwrite</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype"></td><td class="dataname"><a href="#TObject:kWriteDelete">kWriteDelete</a></td><td></td></tr>
+<tr class="datainh"><td class="datatype">};</td><td></td><td></td></tr>
+
+</table></div>
+<div class="access" id="dataprot"><b>protected:</b>
+<table class="data" id="tabdataprot" cellspacing="0">
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fCaloAngle"><span class="baseclass">TGenGeo::</span>fCaloAngle</a></td><td class="datadesc">Calorimeter+PA angle (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fCaloDist"><span class="baseclass">TGenGeo::</span>fCaloDist</a></td><td class="datadesc">Calorimeter front face distance from the center of the target</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fCaloHorAccL"><span class="baseclass">TGenGeo::</span>fCaloHorAccL</a></td><td class="datadesc">Calorimeter horizontal left acceptance (mm)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fCaloHorAccR"><span class="baseclass">TGenGeo::</span>fCaloHorAccR</a></td><td class="datadesc">Calorimeter horizontal right acceptance (mm)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fCaloVerAccD"><span class="baseclass">TGenGeo::</span>fCaloVerAccD</a></td><td class="datadesc">Calorimeter vertical downwards acceptance (mm)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fCaloVerAccU"><span class="baseclass">TGenGeo::</span>fCaloVerAccU</a></td><td class="datadesc">Calorimeter vertical upwards acceptance (mm)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fEbeam"><span class="baseclass">TGenBase::</span>fEbeam</a></td><td class="datadesc">Beam energy</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fFermi"><span class="baseclass">TGenBase::</span>fFermi</a></td><td class="datadesc">Fermi momentum corrections (?)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fNwrite"><span class="baseclass">TGenBase::</span>fNwrite</a></td><td class="datadesc">! Number of parameters per event to write</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fPAAzimAccMax"><span class="baseclass">TGenGeo::</span>fPAAzimAccMax</a></td><td class="datadesc">PA maximum azimuth acceptance (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fPAAzimAccMin"><span class="baseclass">TGenGeo::</span>fPAAzimAccMin</a></td><td class="datadesc">PA minimum azimuth acceptance (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fPAPolarAccMax"><span class="baseclass">TGenGeo::</span>fPAPolarAccMax</a></td><td class="datadesc">PA maximum polar acceptance (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fPAPolarAccMin"><span class="baseclass">TGenGeo::</span>fPAPolarAccMin</a></td><td class="datadesc">PA minimum polar acceptance (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fQ2"><span class="baseclass">TGenBase::</span>fQ2</a></td><td class="datadesc">Q2 for the event</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fQ2max"><span class="baseclass">TGenBase::</span>fQ2max</a></td><td class="datadesc">Maximum Q2 for the event</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fQ2min"><span class="baseclass">TGenBase::</span>fQ2min</a></td><td class="datadesc">Minimum Q2 for the event</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fRadCor"><span class="baseclass">TGenBase::</span>fRadCor</a></td><td class="datadesc">External bremsstrahlung before the vertex and internal (elastic) radiative corrections</td></tr>
+<tr class="datainh"><td class="datatype">TRandom2*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:fRan"><span class="baseclass">TGenBase::</span>fRan</a></td><td class="datadesc">Random number generator</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fSpecAngle"><span class="baseclass">TGenGeo::</span>fSpecAngle</a></td><td class="datadesc">Left spectrometer angle (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fSpecHorAcc"><span class="baseclass">TGenGeo::</span>fSpecHorAcc</a></td><td class="datadesc">Spectrometer horizontal acceptance (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fSpecHorAccGen"><span class="baseclass">TGenGeo::</span>fSpecHorAccGen</a></td><td class="datadesc">Spectrometer horizontal acceptance (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fSpecMom"><span class="baseclass">TGenGeo::</span>fSpecMom</a></td><td class="datadesc">Central spectrometer momemtum (GeV)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fSpecMomAcc"><span class="baseclass">TGenGeo::</span>fSpecMomAcc</a></td><td class="datadesc">Spectrometer momentum acceptance: (delta p)/p</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fSpecMomAccGen"><span class="baseclass">TGenGeo::</span>fSpecMomAccGen</a></td><td class="datadesc">Spectrometer momentum acceptance: (delta p)/p</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fSpecVerAcc"><span class="baseclass">TGenGeo::</span>fSpecVerAcc</a></td><td class="datadesc">Spectrometer vertical acceptance (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fSpecVerAccGen"><span class="baseclass">TGenGeo::</span>fSpecVerAccGen</a></td><td class="datadesc">Spectrometer vertical acceptance (rad)</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fTargDens"><span class="baseclass">TGenGeo::</span>fTargDens</a></td><td class="datadesc">Target density</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fTargLength"><span class="baseclass">TGenGeo::</span>fTargLength</a></td><td class="datadesc">Target length</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Int_t">Int_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fTargType"><span class="baseclass">TGenGeo::</span>fTargType</a></td><td class="datadesc">Target type</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fTargZoff"><span class="baseclass">TGenGeo::</span>fTargZoff</a></td><td class="datadesc">Target Z offset in cm</td></tr>
+<tr class="datainh"><td class="datatype">TVector3*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:fVertex"><span class="baseclass">TGenBase::</span>fVertex</a></td><td class="datadesc">Vertex of interaction</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a>*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:fdmom"><span class="baseclass">TGenBase::</span>fdmom</a></td><td class="datadesc">! Deuteron momentum distribution;</td></tr>
+<tr class="datainh"><td class="datatype">TLorentzVector*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:fe"><span class="baseclass">TGenBase::</span>fe</a></td><td class="datadesc">Scattered electron</td></tr>
+<tr class="datainh"><td class="datatype">TLorentzVector*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:feini"><span class="baseclass">TGenBase::</span>feini</a></td><td class="datadesc">Initial electron</td></tr>
+<tr class="datainh"><td class="datatype">TLorentzVector*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:feprerad"><span class="baseclass">TGenBase::</span>feprerad</a></td><td class="datadesc">Scattered electron at vertex</td></tr>
+<tr class="datainh"><td class="datatype">static <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fgErrors"><span class="baseclass">TGenBase::</span>fgErrors</a></td><td class="datadesc">Display errors ?</td></tr>
+<tr class="datainh"><td class="datatype">static <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fgIsInit"><span class="baseclass">TGenBase::</span>fgIsInit</a></td><td class="datadesc">Is TGenBase initialized ?</td></tr>
+<tr class="datainh"><td class="datatype">static <a href="./ListOfTypes.html#Bool_t">Bool_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fgWarnings"><span class="baseclass">TGenBase::</span>fgWarnings</a></td><td class="datadesc">Display warnings ?</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenGeo.html#TGenGeo:fm"><span class="baseclass">TGenGeo::</span>fm</a></td><td class="datadesc">Mass of the recoil particle</td></tr>
+<tr class="datainh"><td class="datatype">TLorentzVector*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:fpini"><span class="baseclass">TGenBase::</span>fpini</a></td><td class="datadesc">Initial proton (or neutron)</td></tr>
+<tr class="datainh"><td class="datatype">TLorentzVector*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:fq"><span class="baseclass">TGenBase::</span>fq</a></td><td class="datadesc">Virtual photon</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a>*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:frho"><span class="baseclass">TGenBase::</span>frho</a></td><td class="datadesc">! Deuteron density (?) distribution;</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fxb"><span class="baseclass">TGenBase::</span>fxb</a></td><td class="datadesc">xb for the event</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fxbmax"><span class="baseclass">TGenBase::</span>fxbmax</a></td><td class="datadesc">Maximum x_b for the event</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a href="./TGenBase.html#TGenBase:fxbmin"><span class="baseclass">TGenBase::</span>fxbmin</a></td><td class="datadesc">Minimum x_b for the event</td></tr>
+<tr class="datainh"><td class="datatype"><a href="./ListOfTypes.html#ofstream">ofstream</a>*</td><td class="dataname"><a href="./TGenBase.html#TGenBase:output"><span class="baseclass">TGenBase::</span>output</a></td><td class="datadesc">! Temporary output file</td></tr>
+
+</table></div>
+<div class="access" id="datapriv"><b>private:</b>
+<table class="data" id="tabdatapriv" cellspacing="0">
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fPSF"></a>fPSF</td><td class="datadesc">Phase space factor of the event</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fSigmaM"></a>fSigmaM</td><td class="datadesc">Sigma minus cross-section</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fSigmaP"></a>fSigmaP</td><td class="datadesc">Sigma plus cross-section</td></tr>
+<tr class="data"><td class="datatype">TLorentzVector*</td><td class="dataname"><a name="TGenPi0:fg1"></a>fg1</td><td class="datadesc">Emitted photon 1    </td></tr>
+<tr class="data"><td class="datatype">TLorentzVector*</td><td class="dataname"><a name="TGenPi0:fg2"></a>fg2</td><td class="datadesc">Emitted photon 2   </td></tr>
+<tr class="data"><td class="datatype">TLorentzVector*</td><td class="dataname"><a name="TGenPi0:fp"></a>fp</td><td class="datadesc">Recoil particle</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fpcm1"></a>fpcm1</td><td class="datadesc">virtual photon</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fpcm2"></a>fpcm2</td><td class="datadesc">proton</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fpcm3"></a>fpcm3</td><td class="datadesc">pi0</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fpcm4"></a>fpcm4</td><td class="datadesc">delta</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fphi"></a>fphi</td><td class="datadesc">phi of the event</td></tr>
+<tr class="data"><td class="datatype">TLorentzVector*</td><td class="dataname"><a name="TGenPi0:fpi0"></a>fpi0</td><td class="datadesc">\pi_0</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:fs"></a>fs</td><td class="datadesc">s of the reaction</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:ft"></a>ft</td><td class="datadesc">t for the event</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:ft0"></a>ft0</td><td class="datadesc">Maximum t for kinematics</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:ft1"></a>ft1</td><td class="datadesc">Minimum t for kinematics</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:ftmax"></a>ftmax</td><td class="datadesc">Maximum t for the event</td></tr>
+<tr class="data"><td class="datatype"><a href="./ListOfTypes.html#Double_t">Double_t</a></td><td class="dataname"><a name="TGenPi0:ftmin"></a>ftmin</td><td class="datadesc">Minimum t for the event</td></tr>
+
+</table></div>
+</div>
+<h2><a id="TGenPi0:Class_Charts"></a>Class Charts</h2>
+<map name="MapTGenPi0_Inh" id="MapTGenPi0_Inh">
+<area shape="rect" id="node3" href="./TGenBase.html" title="TGenBase" alt="" coords="419,7,558,35"/>
+<area shape="rect" id="node4" href="./TGenGeo.html" title="TGenGeo" alt="" coords="210,7,349,35"/>
+</map>
+<map name="MapTGenPi0_InhMem" id="MapTGenPi0_InhMem">
+<area shape="rect" id="graph12" href="./TGenBase.html" alt="" coords="859,63,947,201"/>
+<area shape="rect" id="graph13" href="./TGenBase.html" alt="" coords="760,63,848,201"/>
+<area shape="rect" id="graph14" href="./TGenBase.html" alt="" coords="661,63,749,201"/>
+<area shape="rect" id="graph15" href="./TGenBase.html" alt="" coords="891,212,915,233"/>
+<area shape="rect" id="graph16" href="./TGenBase.html" alt="" coords="859,244,947,455"/>
+<area shape="rect" id="graph17" href="./TGenBase.html" alt="" coords="760,215,848,455"/>
+<area shape="rect" id="graph18" href="./TGenBase.html" alt="" coords="661,215,749,455"/>
+<area shape="rect" id="graph11" href="./TGenBase.html" title="TGenBase" alt="" coords="651,16,957,465"/>
+<area shape="rect" id="graph21" href="./TGenGeo.html" alt="" coords="541,63,629,201"/>
+<area shape="rect" id="graph22" href="./TGenGeo.html" alt="" coords="443,63,531,201"/>
+<area shape="rect" id="graph23" href="./TGenGeo.html" alt="" coords="344,63,432,201"/>
+<area shape="rect" id="graph24" href="./TGenGeo.html" alt="" coords="573,212,597,233"/>
+<area shape="rect" id="graph25" href="./TGenGeo.html" alt="" coords="541,244,629,455"/>
+<area shape="rect" id="graph26" href="./TGenGeo.html" alt="" coords="443,215,531,455"/>
+<area shape="rect" id="graph27" href="./TGenGeo.html" alt="" coords="344,215,432,455"/>
+<area shape="rect" id="graph20" href="./TGenGeo.html" title="TGenGeo" alt="" coords="333,16,640,465"/>
+</map>
+<map name="MapTGenPi0_Lib" id="MapTGenPi0_Lib">
+<area shape="rect" id="node1" href="LibraryDependencies.html" title="All Libraries" alt="" coords="140,240,255,288"/>
+</map>
+<div class="tabs">
+<a id="imgTGenPi0_Inh" class="tabsel" href="inh/TGenPi0_Inh.png" onclick="javascript:return SetImg('Charts','inh/TGenPi0_Inh.png');">Inheritance</a>
+<a id="imgTGenPi0_InhMem" class="tab" href="inhmem/TGenPi0_InhMem.png" onclick="javascript:return SetImg('Charts','inhmem/TGenPi0_InhMem.png');">Inherited Members</a>
+<a id="imgTGenPi0_Incl" class="tab" href="incl/TGenPi0_Incl.png" onclick="javascript:return SetImg('Charts','incl/TGenPi0_Incl.png');">Includes</a>
+<a id="imgTGenPi0_Lib" class="tab" href="lib/TGenPi0_Lib.png" onclick="javascript:return SetImg('Charts','lib/TGenPi0_Lib.png');">Libraries</a><br/>
+</div><div class="classcharts"><div class="classchartswidth"></div>
+<img id="Charts" alt="Class Charts" class="classcharts" usemap="#MapTGenPi0_Inh" src="inh/TGenPi0_Inh.png"/></div>
+<h2>Function documentation</h2>
+<div class="funcdoc"><span class="funcname"> <a class="funcname" name="TGenPi0:TGenPi0" href="src/TGenPi0.cxx.html#jQnt5C">TGenPi0</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> Ebeam, <a href="./ListOfTypes.html#Int_t">Int_t</a> TargType, <a href="./ListOfTypes.html#UInt_t">UInt_t</a> seed1 = 1, <a href="./ListOfTypes.html#UInt_t">UInt_t</a> seed2 = 2)</span><br />
+<div class="funccomm"><pre> Default constructor
+ Initial 4-vectors are initialized
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"> <a class="funcname" name="TGenPi0:TGenPi0@1" href="src/TGenPi0.cxx.html#tE2apC">TGenPi0</a>(<span class="keyword">const</span> <a href="./TGenPi0.html">TGenPi0</a>&amp; )</span><br />
+<div class="funccomm"><pre> <a href="./#TObject:Copy" title="void TObject::Copy(TObject&amp; object)">Copy</a> constructor
+  ((<a href="./TGenPi0.html">TGenPi0</a>&amp;)TCalobase).<a href="./#TObject:Copy" title="void TObject::Copy(TObject&amp; object)">Copy</a>(*this);
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"> <a class="funcname" name="TGenPi0:_TGenPi0" href="src/TGenPi0.cxx.html#xNEri">~TGenPi0</a>()</span><br />
+<div class="funccomm"><pre> Default destructor
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:IntRCBef" href="src/TGenPi0.cxx.html#YJLsID">IntRCBef</a>(<span class="keyword">void</span>)</span><br />
+<div class="funccomm"><pre> Makes internal radiative corrections _before_ the vertex (to the initial)
+ electron) using the equivalent radiator technique.
+ Uses \Delta E=E_0 * R^(2./nu) with R randomly between 0 and 1.
+ Factor 1/2 is because internal corrections must be applied twice (before
+ and after the vertex) with equivalent radiator thickness half each time.
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:IntRCAft" href="src/TGenPi0.cxx.html#sporID">IntRCAft</a>(<span class="keyword">void</span>)</span><br />
+<div class="funccomm"><pre> Makes internal radiative corrections _after_ the vertex (to the scattered
+ electron) using the equivalent radiator technique.
+ Uses \Delta E=E_0 * R^(2./nu) with R randomly between 0 and 1.
+ Factor 1/2 is because internal corrections must be applied twice (before
+ and after the vertex) with equivalent radiator thickness half each time.
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:ComputePi0" href="src/TGenPi0.cxx.html#DxQVQC">ComputePi0</a>(<span class="keyword">void</span>)</span><br />
+<div class="funccomm"><pre>Computes the gamma* p -&gt; pi0 p' reaction in the center of mass.
+The angle phi is generated and all vectors are boost back to the
+laboratory. Data members <a href="./TGenPi0.html#TGenPi0:fp" title="TLorentzVector* TGenPi0::fp">fp</a> and fg are set.
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:ComputeTminTmax" href="src/TGenPi0.cxx.html#gUupHC">ComputeTminTmax</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> m3, <a href="./ListOfTypes.html#Double_t">Double_t</a> m4)</span><br />
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:Compute2Body" href="src/TGenPi0.cxx.html#Ms9WCB">Compute2Body</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> m)</span><br />
+<div class="funccomm"><pre>Computes the gamma* p -&gt; X p' reaction in the center of mass, as a
+function of the mass m of the particle X.
+The angle phi is generated and all vectors are boost back to the
+laboratory. Data members <a href="./TGenPi0.html#TGenPi0:fp" title="TLorentzVector* TGenPi0::fp">fp</a> and fg are set.
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:TwoBodyDecay" href="src/TGenPi0.cxx.html#IBzFiC">TwoBodyDecay</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> M, <a href="./ListOfTypes.html#Double_t">Double_t</a> m1, <a href="./ListOfTypes.html#Double_t">Double_t</a> m2)</span><br />
+<div class="funccomm"><pre>Desintegration du pi0
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:ApplySpecVerAcc" href="src/TGenPi0.cxx.html#hr8Q0E">ApplySpecVerAcc</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> aav = -1.)</span><br />
+<div class="funccomm"><pre> Applies vertical spectrometer acceptance by rotating all 4-vectors
+ around the beam axis. An angle can be specified, otherwise it's generated
+ randomly between spectrometer acceptances
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname">TLorentzVector* <a class="funcname" name="TGenPi0:GetFinalPhoton1" href="src/TGenPi0.cxx.html#HPK5Y">GetFinalPhoton1</a>(<span class="keyword">void</span>)</span><br />
+<div class="funccomm"><pre> Returns the final photon1 4-vector if it exists
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname">TLorentzVector* <a class="funcname" name="TGenPi0:GetFinalPhoton2" href="src/TGenPi0.cxx.html#TPK5Y">GetFinalPhoton2</a>(<span class="keyword">void</span>)</span><br />
+<div class="funccomm"><pre> Returns the final photon2 4-vector if it exists
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname">TLorentzVector* <a class="funcname" name="TGenPi0:GetFinalProton" href="src/TGenPi0.cxx.html#XNoqjC">GetFinalProton</a>(<span class="keyword">void</span>)</span><br />
+<div class="funccomm"><pre> Returns the final photon 4-vector if it exists
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:Write2File" href="src/TGenPi0.cxx.html#j6Ho6B">Write2File</a>(<span class="keyword">void</span>)</span><br />
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:Print" href="src/TGenPi0.cxx.html#QbSh0E">Print</a>(<span class="keyword">char</span>* opt = <span class="string">""</span>)</span><br />
+<div class="funccomm"><pre> Output on screen. If option <span class="string">"all"</span> is specified the complete setup of the
+ event is printed out. By default only the final state 4-vectors and the
+ virtual photon are displayed.
+</pre></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:Settmin" href="src/TGenPi0.h.html#xMWTTB">Settmin</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> tmin)</span><br />
+
+<div class="code"><code class="inlinecode">{ <a href="./TGenPi0.html#TGenPi0:ftmin" title="Double_t TGenPi0::ftmin">ftmin</a>=tmin ; }</code></div>
+<div style="clear:both;"></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">void</span> <a class="funcname" name="TGenPi0:Settmax" href="src/TGenPi0.h.html#YDgJbD">Settmax</a>(<a href="./ListOfTypes.html#Double_t">Double_t</a> tmax)</span><br />
+
+<div class="code"><code class="inlinecode">{ <a href="./TGenPi0.html#TGenPi0:ftmax" title="Double_t TGenPi0::ftmax">ftmax</a>=tmax ; }</code></div>
+<div style="clear:both;"></div>
+</div>
+<div class="funcdoc"><span class="funcname"><span class="keyword">double</span> <a class="funcname" name="TGenPi0:GetPSF" href="src/TGenPi0.h.html#QxxMlC">GetPSF</a>()</span><br />
+
+<div class="code"><code class="inlinecode">{<span class="keyword">return</span> <a href="./TGenPi0.html#TGenPi0:fPSF" title="Double_t TGenPi0::fPSF">fPSF</a>;}</code></div>
+<div style="clear:both;"></div>
+</div>
+
+<br />
+<!--SIGNATURE-->
+<div id="footer">
+
+<em>&raquo; Last changed: Mon Nov 10 17:42:40 2014 </em><em>&raquo; Last generated: 2014-11-10 17:42</em><br />
+<em>This page has been automatically generated. For comments or suggestions regarding the documentation or ROOT in general please send a mail to <a href="mailto:rootdev@cern.ch">ROOT support</a>.</em>
+</div>
+</div>
+</body>
+</html>

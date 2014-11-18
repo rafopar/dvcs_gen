@@ -1,0 +1,47 @@
+#include "TGenDVCS.h"
+#include <iostream.h>
+void gen()
+{
+  TGenDVCS *gEv=new TGenDVCS(5.75,0,40000,50000);
+  gEv->SetTargetParam(15.,0.0723);
+  gEv->SetGeometry(0.4173,2.35,0.258527,1100.);
+  //gEv->SetCaloAcceptance(1000.,1000.,1000.,1000.);
+  gEv->Settmin(-2.);
+  //gEv->SetFermi();
+  Int_t nev=70000;
+  Int_t j=0,i=0;
+  cout<<"Generating "<<nev<<" events..."<<endl;
+  gEv->SetSpectroAcceptanceGen(0.08,0.14,0.1);
+  
+  for(Int_t i=0;i<nev;i++){
+    //while(j<nev){
+    i++;
+    if(i%100==0) cout<<j<<"/"<<nev<<endl;
+    //gEv->Settmin(-2.); //Use this method to change tmin (default -2 GeV)
+    //gEv->Settmax(0.);  //Use this method to change tmax (default 0 GeV)
+    gEv->GenerateVertex();//Generates the vertex
+    gEv->ExtBrem();//Make external pre-vertex radiative corrections
+    gEv->GenKin();//Computes scattered electron kinematics
+    gEv->IntRCBef();//Internal radiative corrections (before vertex)
+    // gEv->GenFermiIni();//To use if fFermi is set
+    if(gEv->ComputeElectron()){//Compute the scattered electron 4-vector
+      gEv->IntRCAft();//Internal radiative corrections (after vertex)
+      if(gEv->HitsSpectro(gEv->GetScatteredElectron())){//Check hor spectro accep.
+	gEv->ComputeDVCS();//Compute the gamma*p->gamma p collision
+	gEv->ApplySpecVerAcc();//Rotates all final vectors around the beam axis
+	if(gEv->HitsCalo(gEv->GetFinalPhoton())){//Checks calo acceptance
+	  //     if(gEv->HitsPA(gEv->GetFinalProton())){
+	  //gEv->Print();
+	  //gEv->XSec();
+	  j++;
+	  //cout<<"Weight : "<<gEv->GetFastWeight()<<endl;
+	  gEv->Write2File();//This writes the event in a temporary file
+	  // }
+	}
+      }
+    }
+    gEv->Clear();
+  }
+  cout<<"j="<<j<<endl;
+  gEv->DumpFinalFile("outdvcs.txt",nev,j);
+}

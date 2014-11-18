@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--                                             -->
+<!-- Author: ROOT team (rootdev@pcroot.cern.ch)  -->
+<!--                                             -->
+<!--   Date: Thu Aug 30 11:59:55 2012            -->
+<!--                                             -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>TGenOme - source file</title>
+<meta name="rating" content="General" />
+<meta name="objecttype" content="Manual" />
+<meta name="keywords" content="software development, oo, object oriented, unix, x11, windows, c++, html, rene brun, fons rademakers, cern" />
+<meta name="description" content="ROOT - An Object Oriented Framework For Large Scale Data Analysis." />
+<link rel="stylesheet" type="text/css" href="../ROOT.css" id="ROOTstyle" />
+<script type="text/javascript" src="../ROOT.js"></script>
+</head>
+<body  onload="javascript:SetValuesFromCookie();">
+<pre class="code">
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenOme.html">TGenOme</a>.h, v1.0, Tue Aug 4 11:13:57</span>
+<span class="comment">// Author: C. Munoz Camacho</span>
+<span class="comment">//</span>
+
+<span class="cpp">#ifndef __TGenOme__</span>
+<span class="cpp">#define __TGenOme__</span>
+
+<span class="cpp">#ifndef __TGenBase__</span>
+<span class="cpp">#include "<a href="../TGenBase.h">TGenBase.h</a>"</span>
+<span class="cpp">#endif</span>
+
+<span class="cpp">#ifndef ROOT_TLorentzVector</span>
+<span class="cpp">#include "TLorentzVector.h"</span>
+<span class="cpp">#endif</span>
+
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenOme.html">TGenOme</a>.h</span>
+<span class="comment">//</span>
+<span class="comment">// Ome event generator class</span>
+<span class="comment">// </span>
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="keyword">class</span> <a href="../TGenOme.html">TGenOme</a> : <span class="keyword">public</span> <a href="../TGenBase.html">TGenBase</a>
+{
+  <span class="keyword">private</span> :
+
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>;  <span class="comment">// ome</span>
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:fpi0" title="TLorentzVector* TGenOme::fpi0">fpi0</a>;   <span class="comment">// pi0 (decay from ome)    </span>
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:fgam" title="TLorentzVector* TGenOme::fgam">fgam</a>;   <span class="comment">// gam (decay from ome) </span>
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>;   <span class="comment">// Emitted photon 1 (decay from pi0)</span>
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>;   <span class="comment">// Emitted photon 2 (decay from pi0)</span>
+    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>;    <span class="comment">// Recoil particle</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenOme.html#TGenOme:fomem" title="Double_t TGenOme::fomem">fomem</a>;        <span class="comment">// Ome mass</span>
+
+    <span class="comment">//    <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* fq;    // Virtual photon</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenOme.html#TGenOme:fSigmaP" title="Double_t TGenOme::fSigmaP">fSigmaP</a>;   <span class="comment">// Sigma plus cross-section</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenOme.html#TGenOme:fSigmaM" title="Double_t TGenOme::fSigmaM">fSigmaM</a>;   <span class="comment">// Sigma minus cross-section</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenOme.html#TGenOme:fPSF" title="Double_t TGenOme::fPSF">fPSF</a>;      <span class="comment">// Phase space factor of the event</span>
+                           <span class="comment">// * weight (from phase space gen)</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenOme.html#TGenOme:ft" title="Double_t TGenOme::ft">ft</a>;           <span class="comment">// t for the event</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenOme.html#TGenOme:fs" title="Double_t TGenOme::fs">fs</a>;           <span class="comment">// s of the reaction</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenOme.html#TGenOme:fphi" title="Double_t TGenOme::fphi">fphi</a>;         <span class="comment">// phi of the event</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenOme.html#TGenOme:ftmin" title="Double_t TGenOme::ftmin">ftmin</a>;         <span class="comment">// Minimum t for the event</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>;         <span class="comment">// Maximum t for the event</span>
+
+
+  <span class="keyword">public</span> :
+
+  <a href="../TGenOme.html">TGenOme</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> Ebeam, <a href="../ListOfTypes.html#Int_t">Int_t</a> TargType, <a href="../ListOfTypes.html#UInt_t">UInt_t</a> seed1=1, <a href="../ListOfTypes.html#UInt_t">UInt_t</a> seed2=2);
+  <a href="../TGenOme.html">TGenOme</a>(<span class="keyword">const</span> <a href="../TGenOme.html">TGenOme</a>&amp;);
+  <span class="keyword">virtual</span> <a href="../TGenOme.html#TGenOme:_TGenOme" title="void TGenOme::~TGenOme()">~TGenOme</a>();
+
+  <span class="keyword">virtual</span> <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:Print" title="void TGenOme::Print(char* opt=&quot;&quot;)">Print</a>(<span class="keyword">char</span>* opt=<span class="string">""</span>);
+
+  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:IntRCBef" title="void TGenOme::IntRCBef()">IntRCBef</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:IntRCAft" title="void TGenOme::IntRCAft()">IntRCAft</a>(<span class="keyword">void</span>);
+
+  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:Compute2Body" title="void TGenOme::Compute2Body()">Compute2Body</a>();
+  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:ComputeOme" title="void TGenOme::ComputeOme()">ComputeOme</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:TwoBodyDecay" title="void TGenOme::TwoBodyDecay(Double_t M,Double_t m1,Double_t m2)">TwoBodyDecay</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> M, <a href="../ListOfTypes.html#Double_t">Double_t</a> m1, <a href="../ListOfTypes.html#Double_t">Double_t</a> m2);
+  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:ApplySpecVerAcc" title="void TGenOme::ApplySpecVerAcc(Double_t aav=-1.)">ApplySpecVerAcc</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> aav=-1.);
+<a name="xMWTTB"></a>  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:Settmin" title="void TGenOme::Settmin(Double_t tmin)">Settmin</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> tmin) { <a href="../TGenOme.html#TGenOme:ftmin" title="Double_t TGenOme::ftmin">ftmin</a>=tmin ; }
+<a name="YDgJbD"></a>  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:Settmax" title="void TGenOme::Settmax(Double_t tmax)">Settmax</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> tmax) { <a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>=tmax ; }
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:GetFinalPhoton1" title="TLorentzVector* TGenOme::GetFinalPhoton1()">GetFinalPhoton1</a>(<span class="keyword">void</span>);
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:GetFinalPhoton2" title="TLorentzVector* TGenOme::GetFinalPhoton2()">GetFinalPhoton2</a>(<span class="keyword">void</span>);
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html#TGenOme:GetFinalProton" title="TLorentzVector* TGenOme::GetFinalProton()">GetFinalProton</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenOme.html#TGenOme:Write2File" title="void TGenOme::Write2File()">Write2File</a>(<span class="keyword">void</span>);
+<a name="TkD3Q"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenOme.html#TGenOme:GetOmeMass" title="Double_t TGenOme::GetOmeMass()">GetOmeMass</a>() {<span class="keyword">return</span> <a href="../TGenOme.html#TGenOme:fomem" title="Double_t TGenOme::fomem">fomem</a>;}
+
+  ClassDef(<a href="../TGenOme.html">TGenOme</a>,1) <span class="comment">// Ome Event Generator <a href="../TGenOme.html#TGenOme:Class" title="TClass* TGenOme::Class()">Class</a></span>
+
+}; <span class="comment">// End of <a href="../TGenOme.html">TGenOme</a> class definition</span>
+
+<span class="cpp">#endif</span>
+</pre>
+
+<br />
+<!--SIGNATURE-->
+
+<em>Last update: Thu Aug 30 11:59:55 2012</em><br />
+
+<hr />
+<em>
+This page has been automatically generated. If you have any comments or suggestions about the page layout send a mail to <a href="mailto:rootdev@root.cern.ch">ROOT support</a>, or contact <a href="mailto:rootdev@root.cern.ch">the developers</a> with any questions or problems regarding ROOT.
+</em>
+</body>
+</html>

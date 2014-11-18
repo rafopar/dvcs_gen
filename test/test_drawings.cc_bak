@@ -1,0 +1,63 @@
+#include <TF2.h>
+#include <iostream>
+#include "TGVKelly.h"
+#include <TCanvas.h>
+#include <TSystem.h>
+#include <TFile.h>
+#include <TH2D.h>
+
+using namespace std;
+
+double BH(double *, double *);
+
+int main()
+//int test_drawings()
+{
+  gSystem->Load("libTGVKelly.so");
+  cout<<"Kuku"<<endl;
+  
+  TFile *file_out = new TFile("test_drawings.root", "Recreate");
+
+  TCanvas *c1 = new TCanvas();
+
+  const double xB = 0.39;
+  const double Q2 = 3.2;
+  double tmp;
+
+  TF2 *f_BH = new TF2("f_BH", BH, 0., 360., -1., 0., 2);
+  f_BH->SetNpx(500);
+  f_BH->SetNpy(500);
+  f_BH->SetParameters(Q2, xB);
+  f_BH->Draw("colz");
+  TH2D *h_BH = (TH2D*)f_BH->GetHistogram();
+  h_BH->SetName("h_BH");
+  
+  cout<<f_BH->Eval(-0.23, 131)<<endl;
+  
+  f_BH->Write();
+  h_BH->Write();
+  file_out->Close();
+}
+
+double BH(double *x, double *par)
+{
+  const double Eb = 6.6;
+
+  TGVKelly *tgv2=new TGVKelly(Eb,kFALSE,kTRUE);
+
+  double Q2 = par[0];
+  double xb = par[1];
+
+  double phi = x[0]*TMath::DegToRad();
+  double t = x[1];
+  
+  //cout<<"Q2="<<Q2<<"  xB="<<xb<<"  t="<<t<<"  phi="<<phi<<endl;
+
+  double crs = tgv2->CrossSectionBH( Q2, xb, t, -phi, 1, 0, kTRUE );
+  if( crs > 0 )
+    {
+      return crs;
+    }
+  else return 0;
+  delete tgv2;
+}

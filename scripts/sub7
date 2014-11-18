@@ -1,0 +1,4 @@
+cd $TMPBATCH
+cp /afs/in2p3.fr/home/throng/clas/franck/last/dvcs/gen/deut_momdist.dat .
+/afs/in2p3.fr/home/throng/clas/franck/last/dvcs/gen/Genclas 8393  3083
+mv outdvcs.txt /afs/in2p3.fr/group/clas/data7/clas/out1_22.txt

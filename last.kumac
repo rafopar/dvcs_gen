@@ -1,0 +1,7 @@
+*** Begin of history file: Fri Apr  7 10:54:28 2006
+v/read x,y toto.hbook
+v/plot x%y
+v/plot x
+v/plot y
+quit
+*** End   of history file: Fri Apr  7 10:56:12 2006

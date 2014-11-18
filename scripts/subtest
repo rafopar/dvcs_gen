@@ -1,0 +1,2 @@
+cd $TMPBATCH
+/afs/in2p3.fr/home/throng/clas/franck/last/dvcs/gen/Genclas $GROUP_DIR/data7/clas/toto.txt 845 5

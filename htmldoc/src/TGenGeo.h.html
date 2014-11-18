@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--                                             -->
+<!-- Author: ROOT team (rootdev@pcroot.cern.ch)  -->
+<!--                                             -->
+<!--   Date: Wed May 23 10:53:40 2012            -->
+<!--                                             -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>TGenGeo - source file</title>
+<meta name="rating" content="General" />
+<meta name="objecttype" content="Manual" />
+<meta name="keywords" content="software development, oo, object oriented, unix, x11, windows, c++, html, rene brun, fons rademakers, cern" />
+<meta name="description" content="ROOT - An Object Oriented Framework For Large Scale Data Analysis." />
+<link rel="stylesheet" type="text/css" href="../ROOT.css" id="ROOTstyle" />
+<script type="text/javascript" src="../ROOT.js"></script>
+</head>
+<body  onload="javascript:SetValuesFromCookie();">
+<pre class="code">
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenGeo.html">TGenGeo</a>.h, v1.0, Tue Aug 4 11:13:57</span>
+<span class="comment">// Author: C. Munoz Camacho</span>
+<span class="comment">//</span>
+
+<span class="cpp">#ifndef __TGenGeo__</span>
+<span class="cpp">#define __TGenGeo__</span>
+
+<span class="cpp">#ifndef ROOT_TObject</span>
+<span class="cpp">#include "TObject.h"</span>
+<span class="cpp">#endif</span>
+
+<span class="cpp">#ifndef ROOT_TLorentzVector</span>
+<span class="cpp">#include "TLorentzVector.h"</span>
+<span class="cpp">#endif</span>
+
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenGeo.html">TGenGeo</a>.h</span>
+<span class="comment">//</span>
+<span class="comment">// Generator geometry class</span>
+<span class="comment">// </span>
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="keyword">class</span> <a href="../TGenGeo.html">TGenGeo</a> : <span class="keyword">public</span> <a href="http://root.cern.ch/root/html/TObject.html">TObject</a>
+{
+  <span class="keyword">protected</span> :
+
+  <a href="../ListOfTypes.html#Int_t">Int_t</a>                   <a href="../TGenGeo.html#TGenGeo:fTargType" title="Int_t TGenGeo::fTargType">fTargType</a>;           <span class="comment">// Target type</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>                <a href="../TGenGeo.html#TGenGeo:fTargLength" title="Double_t TGenGeo::fTargLength">fTargLength</a>;         <span class="comment">// Target length</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>                <a href="../TGenGeo.html#TGenGeo:fTargDens" title="Double_t TGenGeo::fTargDens">fTargDens</a>;           <span class="comment">// Target density</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>                <a href="../TGenGeo.html#TGenGeo:fTargZoff" title="Double_t TGenGeo::fTargZoff">fTargZoff</a>;           <span class="comment">// Target Z offset in cm</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>                <a href="../TGenGeo.html#TGenGeo:fm" title="Double_t TGenGeo::fm">fm</a>;                  <span class="comment">// Mass of the recoil particle</span>
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fSpecAngle" title="Double_t TGenGeo::fSpecAngle">fSpecAngle</a>;          <span class="comment">// Left spectrometer angle (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fSpecMom" title="Double_t TGenGeo::fSpecMom">fSpecMom</a>;            <span class="comment">// Central spectrometer momemtum (GeV)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fCaloAngle" title="Double_t TGenGeo::fCaloAngle">fCaloAngle</a>;          <span class="comment">// Calorimeter+PA angle (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fCaloDist" title="Double_t TGenGeo::fCaloDist">fCaloDist</a>;     <span class="comment">// Calorimeter front face distance from the center of the target</span>
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fSpecHorAcc" title="Double_t TGenGeo::fSpecHorAcc">fSpecHorAcc</a>;   <span class="comment">// Spectrometer horizontal acceptance (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fSpecVerAcc" title="Double_t TGenGeo::fSpecVerAcc">fSpecVerAcc</a>;   <span class="comment">// Spectrometer vertical acceptance (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fSpecMomAcc" title="Double_t TGenGeo::fSpecMomAcc">fSpecMomAcc</a>;   <span class="comment">// Spectrometer momentum acceptance: (delta p)/p</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fSpecHorAccGen" title="Double_t TGenGeo::fSpecHorAccGen">fSpecHorAccGen</a>;   <span class="comment">// Spectrometer horizontal acceptance (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fSpecVerAccGen" title="Double_t TGenGeo::fSpecVerAccGen">fSpecVerAccGen</a>;   <span class="comment">// Spectrometer vertical acceptance (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fSpecMomAccGen" title="Double_t TGenGeo::fSpecMomAccGen">fSpecMomAccGen</a>;   <span class="comment">// Spectrometer momentum acceptance: (delta p)/p</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fCaloHorAccR" title="Double_t TGenGeo::fCaloHorAccR">fCaloHorAccR</a>;  <span class="comment">// Calorimeter horizontal right acceptance (mm)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fCaloHorAccL" title="Double_t TGenGeo::fCaloHorAccL">fCaloHorAccL</a>;  <span class="comment">// Calorimeter horizontal left acceptance (mm)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fCaloVerAccU" title="Double_t TGenGeo::fCaloVerAccU">fCaloVerAccU</a>;  <span class="comment">// Calorimeter vertical upwards acceptance (mm)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fCaloVerAccD" title="Double_t TGenGeo::fCaloVerAccD">fCaloVerAccD</a>;  <span class="comment">// Calorimeter vertical downwards acceptance (mm)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fPAPolarAccMax" title="Double_t TGenGeo::fPAPolarAccMax">fPAPolarAccMax</a>;<span class="comment">// PA maximum polar acceptance (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fPAPolarAccMin" title="Double_t TGenGeo::fPAPolarAccMin">fPAPolarAccMin</a>;<span class="comment">// PA minimum polar acceptance (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fPAAzimAccMax" title="Double_t TGenGeo::fPAAzimAccMax">fPAAzimAccMax</a>; <span class="comment">// PA maximum azimuth acceptance (rad)</span>
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenGeo.html#TGenGeo:fPAAzimAccMin" title="Double_t TGenGeo::fPAAzimAccMin">fPAAzimAccMin</a>; <span class="comment">// PA minimum azimuth acceptance (rad)</span>
+
+  <span class="keyword">public</span> :
+
+  <a href="../TGenGeo.html">TGenGeo</a>();
+  <a href="../TGenGeo.html">TGenGeo</a>(<span class="keyword">const</span> <a href="../TGenGeo.html">TGenGeo</a>&amp;);
+  <span class="keyword">virtual</span> <a href="../TGenGeo.html#TGenGeo:_TGenGeo" title="void TGenGeo::~TGenGeo()">~TGenGeo</a>();
+
+  <span class="keyword">virtual</span> <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:Print" title="void TGenGeo::Print(char* opt=&quot;&quot;)">Print</a>(<span class="keyword">char</span>* opt=<span class="string">""</span>);
+
+<a name="Yy8uiC"></a>  <span class="keyword">static</span> <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:PMass" title="Double_t TGenGeo::PMass()">PMass</a>(<span class="keyword">void</span>) { <span class="keyword">return</span> 0.938271998 ; }
+<a name="UgBHZE"></a>  <span class="keyword">static</span> <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:NMass" title="Double_t TGenGeo::NMass()">NMass</a>(<span class="keyword">void</span>) { <span class="keyword">return</span> 0.93956533 ; }
+<a name="I176fE"></a>  <span class="keyword">static</span> <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:DMass" title="Double_t TGenGeo::DMass()">DMass</a>(<span class="keyword">void</span>) { <span class="keyword">return</span> 1.875613 ; }
+  <span class="keyword">static</span> <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:b" title="Double_t TGenGeo::b()">b</a>(<span class="keyword">void</span>) { <span class="keyword">return</span> 1.35742 ; }
+<a name="DD_sy"></a>  <span class="keyword">static</span> <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:Alpha" title="Double_t TGenGeo::Alpha()">Alpha</a>(<span class="keyword">void</span>) {<span class="keyword">return</span> 7.297352533e-3 ; }
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:PX0" title="Double_t TGenGeo::PX0()">PX0</a>(<span class="keyword">void</span>);
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:NX0" title="Double_t TGenGeo::NX0()">NX0</a>(<span class="keyword">void</span>);
+
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetTargetParam" title="void TGenGeo::SetTargetParam(Double_t targlength,Double_t targzoffset,Double_t targden) or overloads">SetTargetParam</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> targlength, <a href="../ListOfTypes.html#Double_t">Double_t</a> targzoffset, <a href="../ListOfTypes.html#Double_t">Double_t</a> targden);
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetTargetParam" title="void TGenGeo::SetTargetParam(Double_t targlength,Double_t targzoffset,Double_t targden) or overloads">SetTargetParam</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> targlength, <a href="../ListOfTypes.html#Double_t">Double_t</a> targden);
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetDefaultAcceptances" title="void TGenGeo::SetDefaultAcceptances()">SetDefaultAcceptances</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetDefaultAcceptancesGen" title="void TGenGeo::SetDefaultAcceptancesGen()">SetDefaultAcceptancesGen</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetSpectroAcceptance" title="void TGenGeo::SetSpectroAcceptance(Double_t HorAcc,Double_t VerAcc,Double_t MomAcc)">SetSpectroAcceptance</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> HorAcc, <a href="../ListOfTypes.html#Double_t">Double_t</a> VerAcc, <a href="../ListOfTypes.html#Double_t">Double_t</a> MomAcc);
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetSpectroAcceptanceGen" title="void TGenGeo::SetSpectroAcceptanceGen(Double_t HorAcc,Double_t VerAcc,Double_t MomAcc)">SetSpectroAcceptanceGen</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> HorAcc, <a href="../ListOfTypes.html#Double_t">Double_t</a> VerAcc, <a href="../ListOfTypes.html#Double_t">Double_t</a> MomAcc);
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetCaloAcceptance" title="void TGenGeo::SetCaloAcceptance(Double_t HorAccR,Double_t HorAccL,Double_t VerAccU,Double_t VerAccD)">SetCaloAcceptance</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> HorAccR, <a href="../ListOfTypes.html#Double_t">Double_t</a> HorAccL, <a href="../ListOfTypes.html#Double_t">Double_t</a> VerAccU, <a href="../ListOfTypes.html#Double_t">Double_t</a> VerAccD);
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetPAAcceptance" title="void TGenGeo::SetPAAcceptance(Double_t PolAccMax,Double_t PolAccMin,Double_t AzimAccMax,Double_t AzimAccMin)">SetPAAcceptance</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> PolAccMax, <a href="../ListOfTypes.html#Double_t">Double_t</a> PolAccMin, <a href="../ListOfTypes.html#Double_t">Double_t</a> AzimAccMax, <a href="../ListOfTypes.html#Double_t">Double_t</a> AzimAccMin);
+  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetGeometry" title="void TGenGeo::SetGeometry(Double_t SpecAngle,Double_t SpecMom,Double_t CaloAngle,Double_t CaloDist)">SetGeometry</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> SpecAngle, <a href="../ListOfTypes.html#Double_t">Double_t</a> SpecMom, <a href="../ListOfTypes.html#Double_t">Double_t</a> CaloAngle, <a href="../ListOfTypes.html#Double_t">Double_t</a> CaloDist);
+
+<a name="EXziD"></a>  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetSpecAngle" title="void TGenGeo::SetSpecAngle(Double_t SpecAngle)">SetSpecAngle</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> SpecAngle) { <a href="../TGenGeo.html#TGenGeo:fSpecAngle" title="Double_t TGenGeo::fSpecAngle">fSpecAngle</a>=SpecAngle ; }
+<a name="YmTi9B"></a>  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetSpecMomentum" title="void TGenGeo::SetSpecMomentum(Double_t SpecMom)">SetSpecMomentum</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> SpecMom) { <a href="../TGenGeo.html#TGenGeo:fSpecMom" title="Double_t TGenGeo::fSpecMom">fSpecMom</a>=SpecMom ; }
+<a name="vLJ2cE"></a>  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetCaloAngle" title="void TGenGeo::SetCaloAngle(Double_t CaloAngle)">SetCaloAngle</a> (<a href="../ListOfTypes.html#Double_t">Double_t</a> CaloAngle) { <a href="../TGenGeo.html#TGenGeo:fCaloAngle" title="Double_t TGenGeo::fCaloAngle">fCaloAngle</a>=CaloAngle; }
+<a name="TWm_DE"></a>  <span class="keyword">void</span> <a href="../TGenGeo.html#TGenGeo:SetCaloDistance" title="void TGenGeo::SetCaloDistance(Double_t CaloDist)">SetCaloDistance</a> (<a href="../ListOfTypes.html#Double_t">Double_t</a> CaloDist) { <a href="../TGenGeo.html#TGenGeo:fCaloDist" title="Double_t TGenGeo::fCaloDist">fCaloDist</a>=CaloDist ; }
+
+<a name="cZATa"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:GetSpecAngle" title="Double_t TGenGeo::GetSpecAngle()">GetSpecAngle</a> (<span class="keyword">void</span>) { <span class="keyword">return</span> <a href="../TGenGeo.html#TGenGeo:fSpecAngle" title="Double_t TGenGeo::fSpecAngle">fSpecAngle</a> ; }
+<a name="nBv_8C"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:GetSpecMomentum" title="Double_t TGenGeo::GetSpecMomentum()">GetSpecMomentum</a> (<span class="keyword">void</span>) { <span class="keyword">return</span> <a href="../TGenGeo.html#TGenGeo:fSpecMom" title="Double_t TGenGeo::fSpecMom">fSpecMom</a> ; }
+<a name="RIjDJ"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:GetCaloAngle" title="Double_t TGenGeo::GetCaloAngle()">GetCaloAngle</a> (<span class="keyword">void</span>) { <span class="keyword">return</span> <a href="../TGenGeo.html#TGenGeo:fCaloAngle" title="Double_t TGenGeo::fCaloAngle">fCaloAngle</a> ; }
+<a name="ThX5dB"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:GetCaloDistance" title="Double_t TGenGeo::GetCaloDistance()">GetCaloDistance</a> (<span class="keyword">void</span>) { <span class="keyword">return</span> <a href="../TGenGeo.html#TGenGeo:fCaloDist" title="Double_t TGenGeo::fCaloDist">fCaloDist</a> ; }
+
+<a name="K92hk"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:GetSpecVerAcc" title="Double_t TGenGeo::GetSpecVerAcc()">GetSpecVerAcc</a>(<span class="keyword">void</span>) { <span class="keyword">return</span> <a href="../TGenGeo.html#TGenGeo:fSpecVerAcc" title="Double_t TGenGeo::fSpecVerAcc">fSpecVerAcc</a> ; }
+
+  <a href="../ListOfTypes.html#Bool_t">Bool_t</a> <a href="../TGenGeo.html#TGenGeo:HitsSpectro" title="Bool_t TGenGeo::HitsSpectro(TLorentzVector* e)">HitsSpectro</a>(<a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> *e);
+  <a href="../ListOfTypes.html#Bool_t">Bool_t</a> <a href="../TGenGeo.html#TGenGeo:HitsCalo" title="Bool_t TGenGeo::HitsCalo(TLorentzVector* g)">HitsCalo</a>(<a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* g);
+  <a href="../ListOfTypes.html#Bool_t">Bool_t</a> <a href="../TGenGeo.html#TGenGeo:HitsPA" title="Bool_t TGenGeo::HitsPA(TLorentzVector* p)">HitsPA</a>(<a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* p);
+
+  ClassDef(<a href="../TGenGeo.html">TGenGeo</a>,1) <span class="comment">// Generator Geometry <a href="../TGenGeo.html#TGenGeo:Class" title="TClass* TGenGeo::Class()">Class</a></span>
+
+}; <span class="comment">// End of <a href="../TGenGeo.html">TGenGeo</a> class definition</span>
+
+<span class="cpp">#endif</span>
+</pre>
+
+<br />
+<!--SIGNATURE-->
+
+<em>Last update: Wed May 23 10:53:40 2012</em><br />
+
+<hr />
+<em>
+This page has been automatically generated. If you have any comments or suggestions about the page layout send a mail to <a href="mailto:rootdev@root.cern.ch">ROOT support</a>, or contact <a href="mailto:rootdev@root.cern.ch">the developers</a> with any questions or problems regarding ROOT.
+</em>
+</body>
+</html>

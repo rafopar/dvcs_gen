@@ -1,0 +1,6 @@
+mv TGenDVCS.cxx TGenDVCS.cxx.standard
+mv TGenDVCS.cxx.ccpn TGenDVCS.cxx
+mv TGenDVCS.h TGenDVCS.h.standard
+mv TGenDVCS.h.ccpn TGenDVCS.h
+mv rootlogon.C rootlogon.C.standard
+mv rootlogon.C.ccpn rootlogon.C

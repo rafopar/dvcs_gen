@@ -1,0 +1,6 @@
+#!/usr/local/bin/tcsh
+foreach f ( sub* )
+cat $f | sed 's/data6\/gdvcsprod\/dvcs/data7\/clas/g' > $f.new
+mv $f.new $f
+chmod u+x $f
+end

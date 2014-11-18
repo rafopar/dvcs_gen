@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--                                             -->
+<!-- Author: ROOT team (rootdev@cern.ch)         -->
+<!--                                             -->
+<!--   Date: Thu Aug 21 15:09:54 2014            -->
+<!--                                             -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>TGenDVCS - source file</title>
+<meta name="rating" content="General" />
+<meta name="objecttype" content="Manual" />
+<meta name="keywords" content="software development, oo, object oriented, unix, x11, windows, c++, html, rene brun, fons rademakers, cern" />
+<meta name="description" content="ROOT - An Object Oriented Framework For Large Scale Data Analysis." />
+<link rel="stylesheet" type="text/css" href="../ROOT.css" id="ROOTstyle" />
+<script type="text/javascript" src="../ROOT.js"></script>
+</head>
+<body  onload="javascript:SetValuesFromCookie();"><div id="body_content">
+<div id="root_header"><img src="http://root.cern.ch/drupal/sites/default/files/rootdrawing-logo.png" alt="ROOT logo"/></div>
+<div id="codeAndLineNumbers"><pre class="listing">
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenDVCS.html">TGenDVCS</a>.h, v1.0, Tue Aug 4 11:13:57</span>
+<span class="comment">// Author: C. Munoz Camacho</span>
+<span class="comment">//</span>
+
+<span class="cpp">#ifndef __TGenDVCS__</span>
+<span class="cpp">#define __TGenDVCS__</span>
+
+<span class="cpp">#ifndef __TGenBase__</span>
+<span class="cpp">#include "<a href="../TGenBase.h">TGenBase.h</a>"</span>
+<span class="cpp">#endif</span>
+
+<span class="cpp">#ifndef __TGVKelly__</span>
+<span class="cpp">#include "<a href="../TGVKelly.h">TGVKelly.h</a>"</span>
+<span class="cpp">#endif</span>
+
+<span class="cpp">#ifndef ROOT_TLorentzVector</span>
+<span class="cpp">#include "TLorentzVector.h"</span>
+<span class="cpp">#endif</span>
+
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenDVCS.html">TGenDVCS</a>.h</span>
+<span class="comment">//</span>
+<span class="comment">// DVCS Event generator class</span>
+<span class="comment">// </span>
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="keyword">class</span> <a href="../TGenDVCS.html">TGenDVCS</a> : <span class="keyword">public</span> <a href="../TGenBase.html">TGenBase</a>
+{
+  <span class="keyword">private</span> :
+
+    TLorentzVector* <a href="../TGenDVCS.html#TGenDVCS:fg" title="TLorentzVector* TGenDVCS::fg">fg</a>;    <span class="comment">// Emitted photon    </span>
+    TLorentzVector* <a href="../TGenDVCS.html#TGenDVCS:fp" title="TLorentzVector* TGenDVCS::fp">fp</a>;    <span class="comment">// Recoil particle</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenDVCS.html#TGenDVCS:fSigmaP" title="Double_t TGenDVCS::fSigmaP">fSigmaP</a>;   <span class="comment">// Sigma plus cross-section</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenDVCS.html#TGenDVCS:fSigmaM" title="Double_t TGenDVCS::fSigmaM">fSigmaM</a>;   <span class="comment">// Sigma minus cross-section</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a>    <a href="../TGenDVCS.html#TGenDVCS:fPSF" title="Double_t TGenDVCS::fPSF">fPSF</a>;      <span class="comment">// Phase space factor of the event</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:ft" title="Double_t TGenDVCS::ft">ft</a>;           <span class="comment">// t for the event</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:fs" title="Double_t TGenDVCS::fs">fs</a>;           <span class="comment">// s of the reaction</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:fphi" title="Double_t TGenDVCS::fphi">fphi</a>;         <span class="comment">// phi of the event</span>
+
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:ftmin" title="Double_t TGenDVCS::ftmin">ftmin</a>;         <span class="comment">// Minimum t for the event</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:ftmax" title="Double_t TGenDVCS::ftmax">ftmax</a>;         <span class="comment">// Maximum t for the event</span>
+
+    <span class="comment">//Theory parameters</span>
+    <a href="../ListOfTypes.html#Int_t">Int_t</a> <a href="../TGenDVCS.html#TGenDVCS:fphasespace" title="Int_t TGenDVCS::fphasespace">fphasespace</a>;
+    <a href="../ListOfTypes.html#Int_t">Int_t</a> <a href="../TGenDVCS.html#TGenDVCS:fdterm" title="Int_t TGenDVCS::fdterm">fdterm</a>;
+    <a href="../ListOfTypes.html#Int_t">Int_t</a> <a href="../TGenDVCS.html#TGenDVCS:fDD" title="Int_t TGenDVCS::fDD">fDD</a>;
+    <a href="../ListOfTypes.html#Int_t">Int_t</a> <a href="../TGenDVCS.html#TGenDVCS:fpipole" title="Int_t TGenDVCS::fpipole">fpipole</a>;
+    <a href="../ListOfTypes.html#Int_t">Int_t</a> <a href="../TGenDVCS.html#TGenDVCS:ftdep" title="Int_t TGenDVCS::ftdep">ftdep</a>;
+    <a href="../ListOfTypes.html#Int_t">Int_t</a> <a href="../TGenDVCS.html#TGenDVCS:fprop" title="Int_t TGenDVCS::fprop">fprop</a>;
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:fb" title="Double_t TGenDVCS::fb">fb</a>;
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:ftcoef" title="Double_t TGenDVCS::ftcoef">ftcoef</a>;
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:fJu" title="Double_t TGenDVCS::fJu">fJu</a>;
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:fJd" title="Double_t TGenDVCS::fJd">fJd</a>;
+    
+    <span class="comment">//CFFs (GK for TGV)</span>
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> ****<a href="../TGenDVCS.html#TGenDVCS:V" title="Double_t**** TGenDVCS::V">V</a>;<span class="comment">//!</span>
+    TGVKelly *<a href="../TGenDVCS.html#TGenDVCS:tgv" title="TGVKelly* TGenDVCS::tgv">tgv</a>;
+    <a href="../ListOfTypes.html#Double_t">Double_t</a> *<a href="../TGenDVCS.html#TGenDVCS:CFF" title="Double_t* TGenDVCS::CFF">CFF</a>;<span class="comment">//!</span>
+
+ <span class="keyword">public</span> :
+
+  <a href="../TGenDVCS.html">TGenDVCS</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> Ebeam, <a href="../ListOfTypes.html#Int_t">Int_t</a> TargType, <a href="../ListOfTypes.html#UInt_t">UInt_t</a> seed1=1, <a href="../ListOfTypes.html#UInt_t">UInt_t</a> seed2=2);
+  <a href="../TGenDVCS.html">TGenDVCS</a>(<span class="keyword">const</span> <a href="../TGenDVCS.html">TGenDVCS</a>&amp;);
+  <span class="keyword">virtual</span> <a href="../TGenDVCS.html#TGenDVCS:_TGenDVCS" title="void TGenDVCS::~TGenDVCS()">~TGenDVCS</a>();
+
+  <span class="comment">//   virtual <a href="../ListOfTypes.html#void">void</a> <a href="../TGenBase.html#TGenBase:Init" title="void TGenBase::Init()">Init</a>(<a href="../ListOfTypes.html#void">void</a>); </span>
+  <span class="keyword">virtual</span> <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:Print" title="void TGenDVCS::Print(char* opt=&quot;&quot;)">Print</a>(<span class="keyword">char</span>* opt=<span class="string">""</span>);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:IntRCBef" title="void TGenDVCS::IntRCBef()">IntRCBef</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:IntRCAft" title="void TGenDVCS::IntRCAft()">IntRCAft</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:ComputeDVCS" title="void TGenDVCS::ComputeDVCS()">ComputeDVCS</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:Compute2Body" title="void TGenDVCS::Compute2Body(Double_t m)">Compute2Body</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> m);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:ApplySpecVerAcc" title="void TGenDVCS::ApplySpecVerAcc(Double_t aav=-1.)">ApplySpecVerAcc</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> aav=-1.);
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:GetFastWeight" title="Double_t TGenDVCS::GetFastWeight()">GetFastWeight</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:Settmin" title="void TGenDVCS::Settmin(Double_t tmin)">Settmin</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> tmin);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:Settmax" title="void TGenDVCS::Settmax(Double_t tmax)">Settmax</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> tmax);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:SetTheoryParam" title="void TGenDVCS::SetTheoryParam(Int_t phasespace,Int_t prop,Double_t b,Int_t tdep,Double_t tcoef,Int_t DD,Double_t Ju,Double_t Jd,Int_t dterm,Int_t pipole)">SetTheoryParam</a>(<a href="../ListOfTypes.html#Int_t">Int_t</a> phasespace, <a href="../ListOfTypes.html#Int_t">Int_t</a> prop, <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenGeo.html#TGenGeo:b" title="Double_t TGenGeo::b()">b</a>, <a href="../ListOfTypes.html#Int_t">Int_t</a> tdep, <a href="../ListOfTypes.html#Double_t">Double_t</a> tcoef, <a href="../ListOfTypes.html#Int_t">Int_t</a> DD, <a href="../ListOfTypes.html#Double_t">Double_t</a> Ju, <a href="../ListOfTypes.html#Double_t">Double_t</a> Jd, <a href="../ListOfTypes.html#Int_t">Int_t</a> dterm, <a href="../ListOfTypes.html#Int_t">Int_t</a> pipole);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:XSec" title="void TGenDVCS::XSec()">XSec</a>(<span class="keyword">void</span>);
+  TLorentzVector* <a href="../TGenDVCS.html#TGenDVCS:GetFinalPhoton" title="TLorentzVector* TGenDVCS::GetFinalPhoton()">GetFinalPhoton</a>(<span class="keyword">void</span>);
+  TLorentzVector* <a href="../TGenDVCS.html#TGenDVCS:GetFinalProton" title="TLorentzVector* TGenDVCS::GetFinalProton()">GetFinalProton</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:Write2File" title="void TGenDVCS::Write2File()">Write2File</a>(<span class="keyword">void</span>);
+  <span class="keyword">void</span> <a href="../TGenDVCS.html#TGenDVCS:Clear" title="void TGenDVCS::Clear(char* opt=&quot;&quot;)">Clear</a>(<span class="keyword">char</span>* opt=<span class="string">""</span>);
+
+
+<a name="O7mG4E"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:GetPSF" title="Double_t TGenDVCS::GetPSF()">GetPSF</a>(){ <span class="keyword">return</span> <a href="../TGenDVCS.html#TGenDVCS:fPSF" title="Double_t TGenDVCS::fPSF">fPSF</a>; }
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:KellyE" title="Double_t TGenDVCS::KellyE(Double_t q2)">KellyE</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> q2);
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:KellyM" title="Double_t TGenDVCS::KellyM(Double_t q2)">KellyM</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> q2);
+  <a href="../ListOfTypes.html#Double_t">Double_t</a>* <a href="../TGenDVCS.html#TGenDVCS:Interpol_CFF" title="Double_t* TGenDVCS::Interpol_CFF(Double_t Q2,Double_t xb,Double_t t)">Interpol_CFF</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> Q2, <a href="../ListOfTypes.html#Double_t">Double_t</a> xb, <a href="../ListOfTypes.html#Double_t">Double_t</a> t);
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:XSecSum" title="Double_t TGenDVCS::XSecSum(int opt=0)">XSecSum</a>(<span class="keyword">int</span> opt=0);
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:XSecDif" title="Double_t TGenDVCS::XSecDif()">XSecDif</a>(<span class="keyword">void</span>);
+<a name="LxBh.B"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:GetPhi" title="Double_t TGenDVCS::GetPhi()">GetPhi</a>(<span class="keyword">void</span>){<span class="keyword">return</span> <a href="../TGenDVCS.html#TGenDVCS:fphi" title="Double_t TGenDVCS::fphi">fphi</a>;}
+<a name="e2GQ0B"></a>  <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:SetPhi" title="Double_t TGenDVCS::SetPhi(Double_t phi)">SetPhi</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> phi){<a href="../TGenDVCS.html#TGenDVCS:fphi" title="Double_t TGenDVCS::fphi">fphi</a>=phi;}
+<a name="g1O5FC"></a> <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:GetT" title="Double_t TGenDVCS::GetT()">GetT</a>(<span class="keyword">void</span>){<span class="keyword">return</span> <a href="../TGenDVCS.html#TGenDVCS:ft" title="Double_t TGenDVCS::ft">ft</a>;}
+<a name="BiR6pC"></a> <a href="../ListOfTypes.html#Double_t">Double_t</a> <a href="../TGenDVCS.html#TGenDVCS:SetT" title="Double_t TGenDVCS::SetT(Double_t t)">SetT</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> t){<a href="../TGenDVCS.html#TGenDVCS:ft" title="Double_t TGenDVCS::ft">ft</a>=t;}
+
+  ClassDef(<a href="../TGenDVCS.html">TGenDVCS</a>,1) <span class="comment">// DVCS Event Generator <a href="../TGenDVCS.html#TGenDVCS:Class" title="TClass* TGenDVCS::Class()">Class</a></span>
+
+}; <span class="comment">// End of <a href="../TGenDVCS.html">TGenDVCS</a> class definition</span>
+
+<span class="cpp">#endif</span>
+</pre>
+<div id="linenums"><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="1" href="#1" class="ln">1</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="2" href="#2" class="ln">2</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="3" href="#3" class="ln">3</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="4" href="#4" class="ln">4</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="5" href="#5" class="ln">5</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="6" href="#6" class="ln">6</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="7" href="#7" class="ln">7</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="8" href="#8" class="ln">8</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="9" href="#9" class="ln">9</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="10" href="#10" class="ln">10</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="11" href="#11" class="ln">11</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="12" href="#12" class="ln">12</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="13" href="#13" class="ln">13</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="14" href="#14" class="ln">14</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="15" href="#15" class="ln">15</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="16" href="#16" class="ln">16</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="17" href="#17" class="ln">17</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="18" href="#18" class="ln">18</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="19" href="#19" class="ln">19</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="20" href="#20" class="ln">20</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="21" href="#21" class="ln">21</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="22" href="#22" class="ln">22</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="23" href="#23" class="ln">23</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="24" href="#24" class="ln">24</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="25" href="#25" class="ln">25</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="26" href="#26" class="ln">26</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="27" href="#27" class="ln">27</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="28" href="#28" class="ln">28</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="29" href="#29" class="ln">29</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="30" href="#30" class="ln">30</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="31" href="#31" class="ln">31</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="32" href="#32" class="ln">32</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="33" href="#33" class="ln">33</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="34" href="#34" class="ln">34</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="35" href="#35" class="ln">35</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="36" href="#36" class="ln">36</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="37" href="#37" class="ln">37</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="38" href="#38" class="ln">38</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="39" href="#39" class="ln">39</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="40" href="#40" class="ln">40</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="41" href="#41" class="ln">41</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="42" href="#42" class="ln">42</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="43" href="#43" class="ln">43</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="44" href="#44" class="ln">44</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="45" href="#45" class="ln">45</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="46" href="#46" class="ln">46</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="47" href="#47" class="ln">47</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="48" href="#48" class="ln">48</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="49" href="#49" class="ln">49</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="50" href="#50" class="ln">50</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="51" href="#51" class="ln">51</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="52" href="#52" class="ln">52</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="53" href="#53" class="ln">53</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="54" href="#54" class="ln">54</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="55" href="#55" class="ln">55</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="56" href="#56" class="ln">56</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="57" href="#57" class="ln">57</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="58" href="#58" class="ln">58</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="59" href="#59" class="ln">59</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="60" href="#60" class="ln">60</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="61" href="#61" class="ln">61</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="62" href="#62" class="ln">62</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="63" href="#63" class="ln">63</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="64" href="#64" class="ln">64</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="65" href="#65" class="ln">65</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="66" href="#66" class="ln">66</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="67" href="#67" class="ln">67</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="68" href="#68" class="ln">68</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="69" href="#69" class="ln">69</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="70" href="#70" class="ln">70</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="71" href="#71" class="ln">71</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="72" href="#72" class="ln">72</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="73" href="#73" class="ln">73</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="74" href="#74" class="ln">74</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="75" href="#75" class="ln">75</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="76" href="#76" class="ln">76</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="77" href="#77" class="ln">77</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="78" href="#78" class="ln">78</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="79" href="#79" class="ln">79</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="80" href="#80" class="ln">80</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="81" href="#81" class="ln">81</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="82" href="#82" class="ln">82</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="83" href="#83" class="ln">83</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="84" href="#84" class="ln">84</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="85" href="#85" class="ln">85</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="86" href="#86" class="ln">86</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="87" href="#87" class="ln">87</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="88" href="#88" class="ln">88</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="89" href="#89" class="ln">89</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="90" href="#90" class="ln">90</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="91" href="#91" class="ln">91</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="92" href="#92" class="ln">92</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="93" href="#93" class="ln">93</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="94" href="#94" class="ln">94</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="95" href="#95" class="ln">95</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="96" href="#96" class="ln">96</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="97" href="#97" class="ln">97</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="98" href="#98" class="ln">98</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="99" href="#99" class="ln">99</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="100" href="#100" class="ln">100</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="101" href="#101" class="ln">101</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="102" href="#102" class="ln">102</a></div><div class="ln">&nbsp;<span class="lnfile">TGenDVCS.h:</span><a name="103" href="#103" class="ln">103</a></div></div>
+</div>
+
+<br />
+<!--SIGNATURE-->
+<div id="footer">
+
+<em>&raquo; Last changed: 2014-08-21 15:09 </em><em>&raquo; Last generated: 2014-08-21 15:09</em><br />
+<em>This page has been automatically generated. For comments or suggestions regarding the documentation or ROOT in general please send a mail to <a href="mailto:rootdev@cern.ch">ROOT support</a>.</em>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--                                             -->
+<!-- Author: ROOT team (rootdev@pcroot.cern.ch)  -->
+<!--                                             -->
+<!--   Date: Thu Aug 30 11:59:54 2012            -->
+<!--                                             -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>TGenOme - source file</title>
+<meta name="rating" content="General" />
+<meta name="objecttype" content="Manual" />
+<meta name="keywords" content="software development, oo, object oriented, unix, x11, windows, c++, html, rene brun, fons rademakers, cern" />
+<meta name="description" content="ROOT - An Object Oriented Framework For Large Scale Data Analysis." />
+<link rel="stylesheet" type="text/css" href="../ROOT.css" id="ROOTstyle" />
+<script type="text/javascript" src="../ROOT.js"></script>
+</head>
+<body  onload="javascript:SetValuesFromCookie();">
+<pre class="code">
+<span class="comment">//</span>
+<span class="comment">// <a href="../TGenOme.html">TGenOme</a>.cxx, v1.0, Tue Aug 4 11:13:57</span>
+<span class="comment">// Author: C. Munoz Camacho</span>
+<span class="comment">//</span>
+
+<span class="cpp">#include &lt;fstream&gt;</span>
+<span class="cpp">#include &lt;iostream&gt;</span>
+<span class="cpp">#include &lt;stdlib.h&gt;</span>
+<span class="cpp">#include &lt;TGenPhaseSpace.h&gt;</span>
+
+<span class="cpp">#ifndef __TGenOme__</span>
+<span class="cpp">#include "<a href="../TGenOme.h">TGenOme.h</a>"</span>
+<span class="cpp">#endif</span>
+
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
+
+ClassImp(<a href="../TGenOme.html">TGenOme</a>)
+
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="comment">//</span>
+<span class="comment">// Event generator base class</span>
+<span class="comment">// </span>
+<span class="comment">////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="SZd8uC"></a>  <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:TGenOme" title="TGenOme TGenOme::TGenOme(Double_t Ebeam,Int_t TargType,UInt_t seed1=1,UInt_t seed2=2) or overloads">TGenOme</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> Ebeam, <a href="../ListOfTypes.html#Int_t">Int_t</a> TargType, <a href="../ListOfTypes.html#UInt_t">UInt_t</a> seed1, <a href="../ListOfTypes.html#UInt_t">UInt_t</a> seed2):<a href="../TGenBase.html#TGenBase:TGenBase" title="TGenBase TGenBase::TGenBase(Double_t Ebeam,UInt_t seed1=1,UInt_t seed2=2) or overloads">TGenBase</a>(Ebeam,seed1,seed2)
+{
+  <span class="comment">// Default constructor</span>
+  <span class="comment">// Initial 4-vectors are initialized</span>
+
+   <span class="comment">// if(!fgIsInit) <a href="../TGenBase.html#TGenBase:Init" title="void TGenBase::Init()">Init</a>();</span>
+
+  <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"TGenOme constructor"</span>&lt;&lt;endl;
+
+  fdmom=0;
+  <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>=0;
+  fTargType=TargType;
+
+  <span class="keyword">if</span>(fTargType!=1 &amp;&amp; fTargType!=0){
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"Unknown target for DVCS Event generator"</span>&lt;&lt;endl;
+    exit(1);
+  }
+
+  <span class="keyword">if</span>(fTargType==0) fm=<a href="../TGenGeo.html#TGenGeo:PMass" title="Double_t TGenGeo::PMass()">PMass</a>();
+  <span class="keyword">if</span>(fTargType==1) fm=<a href="../TGenGeo.html#TGenGeo:NMass" title="Double_t TGenGeo::NMass()">NMass</a>();
+
+  fpini=0;
+
+  <a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>=0.;
+  <a href="../TGenOme.html#TGenOme:ftmin" title="Double_t TGenOme::ftmin">ftmin</a>=0.;
+
+  fxb=0;
+  fQ2=0;
+  fe=0;
+  <span class="comment">//  fq=0;</span>
+  <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>=0;
+  <a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>=0;
+  <a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>=0;
+  <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>=0;
+
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="pf4VM"></a><a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:TGenOme" title="TGenOme TGenOme::TGenOme(Double_t Ebeam,Int_t TargType,UInt_t seed1=1,UInt_t seed2=2) or overloads">TGenOme</a>(<span class="keyword">const</span> <a href="../TGenOme.html">TGenOme</a>&amp; gen):<a href="../TGenBase.html#TGenBase:TGenBase" title="TGenBase TGenBase::TGenBase(Double_t Ebeam,UInt_t seed1=1,UInt_t seed2=2) or overloads">TGenBase</a>(gen)
+{
+  <span class="comment">// <a href="http://root.cern.ch/root/html/TObject.html#TObject:Copy" title="void TObject::Copy(TObject&amp; object)">Copy</a> constructor</span>
+  <span class="comment">//  ((<a href="../TGenOme.html">TGenOme</a>&amp;)TCalobase).<a href="http://root.cern.ch/root/html/TObject.html#TObject:Copy" title="void TObject::Copy(TObject&amp; object)">Copy</a>(*this);</span>
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="nOEZk"></a> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:_TGenOme" title="void TGenOme::~TGenOme()">~TGenOme</a>()
+{
+  <span class="comment">// Default destructor</span>
+
+  <span class="keyword">if</span>(fpini) <span class="keyword">delete</span> fpini;
+  <span class="keyword">if</span>(fe)    <span class="keyword">delete</span> fe;
+  <span class="keyword">if</span>(<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>)    <span class="keyword">delete</span> <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>;
+  <span class="keyword">if</span>(<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>)   <span class="keyword">delete</span> <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>;
+  <span class="keyword">if</span>(<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>)    <span class="keyword">delete</span> <a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>;
+  <span class="keyword">if</span>(<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>)    <span class="keyword">delete</span> <a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>;
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="Z5JNmB"></a><span class="keyword">void</span> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:IntRCBef" title="void TGenOme::IntRCBef()">IntRCBef</a>(<span class="keyword">void</span>)
+{
+  <span class="comment">// Makes internal radiative corrections _before_ the vertex (to the initial)</span>
+  <span class="comment">// electron) using the equivalent radiator technique.</span>
+  <span class="comment">// Uses \Delta E=E_0 * R^(2./nu) with R randomly between 0 and 1.</span>
+  <span class="comment">// Factor 1/2 is because internal corrections must be applied twice (before</span>
+  <span class="comment">// and after the vertex) with equivalent radiator thickness half each time.</span>
+
+  fRadCor=<a href="../ListOfTypes.html#Bool_t">kTRUE</a>;
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> nu=2.*0.007297352533*(<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Log" title="Double_t TMath::Log(Double_t x)">Log</a>(fQ2/<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Power" title="Double_t TMath::Power(Double_t x,Double_t y)">Power</a>(0.000510998902,2))-1.)/<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Pi" title="Double_t TMath::Pi()">Pi</a>(); 
+  
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> eel=(feini-&gt;E())*(1-<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Power" title="Double_t TMath::Power(Double_t x,Double_t y)">Power</a>(fRan-&gt;Rndm(),1./(nu/2.)));
+  
+  feini-&gt;SetPxPyPzE(0.,0.,eel,eel);
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="JmdMmB"></a><span class="keyword">void</span> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:IntRCAft" title="void TGenOme::IntRCAft()">IntRCAft</a>(<span class="keyword">void</span>)
+{
+  <span class="comment">// Makes internal radiative corrections _after_ the vertex (to the scattered</span>
+  <span class="comment">// electron) using the equivalent radiator technique.</span>
+  <span class="comment">// Uses \Delta E=E_0 * R^(2./nu) with R randomly between 0 and 1.</span>
+  <span class="comment">// Factor 1/2 is because internal corrections must be applied twice (before</span>
+  <span class="comment">// and after the vertex) with equivalent radiator thickness half each time.</span>
+
+  fRadCor=<a href="../ListOfTypes.html#Bool_t">kTRUE</a>;
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> nu=2.*0.007297352533*(<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Log" title="Double_t TMath::Log(Double_t x)">Log</a>(fQ2/<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Power" title="Double_t TMath::Power(Double_t x,Double_t y)">Power</a>(0.000510998902,2))-1.)/<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Pi" title="Double_t TMath::Pi()">Pi</a>(); 
+  
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> deel=1-<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Power" title="Double_t TMath::Power(Double_t x,Double_t y)">Power</a>(fRan-&gt;Rndm(),1./(nu/2.));
+
+  *feprerad=(*fe); <span class="comment">// keep vertex scattered electron</span>
+  
+  *fe=deel*(*fe);
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="lW8A9B"></a> <span class="keyword">void</span> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:ComputeOme" title="void TGenOme::ComputeOme()">ComputeOme</a>(<span class="keyword">void</span>) 
+{ 
+  <span class="comment">//Computes the gamma* p -&gt; ome p' reaction in the center of mass.</span>
+  <span class="comment">//The angle phi is generated and all vectors are boost back to the </span>
+  <span class="comment">//laboratory. Data members <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a> and fg are set.</span>
+
+  <span class="comment">// First off, get the ome mass</span>
+
+  <span class="comment">// And then compute 2body kinematics with that.</span>
+
+
+<span class="comment">//  FROM PIERRE:</span>
+<span class="comment">//</span>
+<span class="comment">//       data </span>
+<span class="comment">// e_ome,gam_ome,mpi0,mgam,mn/.770,.1505,.134976,.13957,.93957/   !valeur </span>
+<span class="comment">// du delta 1232</span>
+
+<span class="comment">//       ei=pom(51)</span>
+     
+<span class="comment">//       ru=(p_i/2.)*(1.-2.*ranf(ur))</span>
+<span class="comment">//       m_ome=gam_ome*.5*tan(ru)+e_ome</span>
+<span class="comment">//       if(m_ome.gt.w)goto 41</span>
+<span class="comment">//       if(m_ome.lt.(mgam+mpi0))goto 41</span>
+
+  <a href="../TGenOme.html#TGenOme:Compute2Body" title="void TGenOme::Compute2Body()">Compute2Body</a>();  <span class="comment">// Mass will be randommized in this method</span>
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="ExX8MD"></a> <span class="keyword">void</span> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:Compute2Body" title="void TGenOme::Compute2Body()">Compute2Body</a>() 
+{ 
+  <span class="comment">//Computes the gamma* p -&gt; X p' reaction in the center of mass, as a</span>
+  <span class="comment">//function of the mass m of the particle X.</span>
+  <span class="comment">//The angle phi is generated and all vectors are boost back to the </span>
+  <span class="comment">//laboratory. Data members <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a> and fg are set.</span>
+  
+  <span class="comment">//////////////////////</span>
+  <span class="comment">//Computation of t and the phase space factor</span>
+  <span class="comment">//////////////////////</span>
+
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> m;
+
+  <a href="../TGenOme.html#TGenOme:fomem" title="Double_t TGenOme::fomem">fomem</a>=0.;
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> nu=fQ2/(2.*fm*fxb);
+  <span class="comment">// BEWARE:Calculated for non-fermi smeared kinematics</span>
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> q3=<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Sqrt" title="Double_t TMath::Sqrt(Double_t x)">Sqrt</a>(fQ2+<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Power" title="Double_t TMath::Power(Double_t x,Double_t y)">Power</a>(nu,2.));
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> q0primemax=0.5*fQ2*(1.-fxb)/(fxb*(fm+nu-q3));
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> q0primemin=0.5*fQ2*(1.-fxb)/(fxb*(fm+nu+q3));
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> tmax=-fQ2-2.*q0primemax*(nu-q3);
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> tmin=-fQ2-2.*q0primemin*(nu+q3);
+  <a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>=<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Min" title="Short_t TMath::Min(Short_t a,Short_t b) or overloads">Min</a>(<a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>,tmax);
+  <a href="../TGenOme.html#TGenOme:ftmin" title="Double_t TGenOme::ftmin">ftmin</a>=<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Max" title="Short_t TMath::Max(Short_t a,Short_t b) or overloads">Max</a>(<a href="../TGenOme.html#TGenOme:ftmin" title="Double_t TGenOme::ftmin">ftmin</a>,tmin);
+  
+  <span class="keyword">if</span>(fFermi) <a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>=0;
+
+  <a href="../TGenOme.html#TGenOme:ft" title="Double_t TGenOme::ft">ft</a>=<a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>+(<a href="../TGenOme.html#TGenOme:ftmin" title="Double_t TGenOme::ftmin">ftmin</a>-<a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>)*fRan-&gt;Rndm();
+
+  <a href="../TGenOme.html#TGenOme:fPSF" title="Double_t TGenOme::fPSF">fPSF</a>=-(<a href="../TGenOme.html#TGenOme:ftmax" title="Double_t TGenOme::ftmax">ftmax</a>-<a href="../TGenOme.html#TGenOme:ftmin" title="Double_t TGenOme::ftmin">ftmin</a>)*(fxbmax-fxbmin)*(fQ2max-fQ2min);
+  <span class="comment">///////////////////</span>
+
+  <span class="comment">//  fq=new <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>(feini-&gt;Px()-fe-&gt;Px(),feini-&gt;Py()-fe-&gt;Py(),feini-&gt;Pz()-fe-&gt;Pz(),feini-&gt;E()-fe-&gt;E());</span>
+
+  <span class="keyword">if</span>(fpini==0 &amp;&amp; fFermi==<a href="../ListOfTypes.html#Bool_t">kFALSE</a>) fpini=<span class="keyword">new</span> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>(0.,0.,0.,fm);
+  <span class="keyword">if</span>(fpini==0 &amp;&amp; fFermi==<a href="../ListOfTypes.html#Bool_t">kTRUE</a>){
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"You must generate fermi recoil particle first"</span>&lt;&lt;endl;
+    exit(1);
+  }
+  
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> p=*fpini;
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> q=*fq;
+
+  <span class="comment">// Boost to center of mass p-q</span>
+
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> cms = q + p;
+
+<span class="comment">//   <a href="../ListOfTypes.html#ostream">cout</a> &lt;&lt; <span class="string">"e("</span> &lt;&lt; feini-&gt;Px() &lt;&lt; <span class="string">","</span> &lt;&lt; feini-&gt;Py() &lt;&lt; <span class="string">","</span> &lt;&lt; feini-&gt;Pz()&lt;&lt; <span class="string">","</span> &lt;&lt; feini-&gt;E()&lt;&lt; <span class="string">")"</span> &lt;&lt; endl;</span>
+<span class="comment">//   <a href="../ListOfTypes.html#ostream">cout</a> &lt;&lt; <span class="string">"p("</span> &lt;&lt; fpini-&gt;Px() &lt;&lt; <span class="string">","</span> &lt;&lt; fpini-&gt;Py() &lt;&lt; <span class="string">","</span> &lt;&lt; fpini-&gt;Pz()&lt;&lt; <span class="string">","</span> &lt;&lt; fpini-&gt;E()&lt;&lt; <span class="string">")"</span> &lt;&lt; endl;</span>
+<span class="comment">//   <a href="../ListOfTypes.html#ostream">cout</a> &lt;&lt; <span class="string">"e'("</span> &lt;&lt; fe-&gt;Px() &lt;&lt; <span class="string">","</span> &lt;&lt; fe-&gt;Py() &lt;&lt; <span class="string">","</span> &lt;&lt; fe-&gt;Pz()&lt;&lt; <span class="string">","</span> &lt;&lt; fe-&gt;E()&lt;&lt; <span class="string">")"</span> &lt;&lt; endl;</span>
+<span class="comment">//   <a href="../ListOfTypes.html#ostream">cout</a> &lt;&lt; <span class="string">"q("</span> &lt;&lt; q.Px() &lt;&lt; <span class="string">","</span> &lt;&lt; q.Py() &lt;&lt; <span class="string">","</span> &lt;&lt; q.Pz()&lt;&lt; <span class="string">","</span> &lt;&lt; q.E()&lt;&lt; <span class="string">")"</span> &lt;&lt; endl;</span>
+<span class="comment">//   <a href="../ListOfTypes.html#ostream">cout</a> &lt;&lt; <span class="string">"cms("</span> &lt;&lt; cms.Px() &lt;&lt; <span class="string">","</span> &lt;&lt; cms.Py() &lt;&lt; <span class="string">","</span> &lt;&lt; cms.Pz() &lt;&lt; <span class="string">","</span> &lt;&lt; cms.E()&lt;&lt; <span class="string">")"</span> &lt;&lt; endl;</span>
+
+  <a href="../TGenOme.html#TGenOme:fs" title="Double_t TGenOme::fs">fs</a>=cms.M2();
+
+  q.Boost(-cms.BoostVector() );
+  p.Boost(-cms.BoostVector() );
+
+  <span class="comment">// Rotation around Y</span>
+  
+  <a href="http://root.cern.ch/root/html/TVector3.html">TVector3</a> oz(0.,0.,1.);
+  <a href="http://root.cern.ch/root/html/TVector3.html">TVector3</a> perpvec=(q.Vect()).Cross(oz);
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> angle=(q.Vect()).Angle(oz);
+
+  q.Rotate(angle,perpvec.Unit());
+  p.Rotate(angle,perpvec.Unit());
+
+  <span class="comment">//<a href="../ListOfTypes.html#Double_t">Double_t</a> egammacm=(<a href="../TGenOme.html#TGenOme:fs" title="Double_t TGenOme::fs">fs</a>-fm*fm)/(2.*<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Sqrt" title="Double_t TMath::Sqrt(Double_t x)">Sqrt</a>(<a href="../TGenOme.html#TGenOme:fs" title="Double_t TGenOme::fs">fs</a>));</span>
+  <span class="comment">//<a href="../ListOfTypes.html#Double_t">Double_t</a> thetacm = (<a href="../TGenOme.html#TGenOme:ft" title="Double_t TGenOme::ft">ft</a>+fQ2)/(2.*egammacm*q.P())+q(3)/q.P();</span>
+
+  <span class="comment">///////////////////////////////////////// </span>
+
+  <a href="../TGenOme.html#TGenOme:fomem" title="Double_t TGenOme::fomem">fomem</a>=0.78259;
+  m=<a href="../TGenOme.html#TGenOme:fomem" title="Double_t TGenOme::fomem">fomem</a>;
+
+  <span class="comment">//////////////////////////////////////////</span>
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> ecm=(<a href="../TGenOme.html#TGenOme:fs" title="Double_t TGenOme::fs">fs</a>-fm*fm+m*m)/(2.*<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Sqrt" title="Double_t TMath::Sqrt(Double_t x)">Sqrt</a>(<a href="../TGenOme.html#TGenOme:fs" title="Double_t TGenOme::fs">fs</a>));
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> pcm=<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Sqrt" title="Double_t TMath::Sqrt(Double_t x)">Sqrt</a>(<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Power" title="Double_t TMath::Power(Double_t x,Double_t y)">Power</a>(ecm,2.)-<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Power" title="Double_t TMath::Power(Double_t x,Double_t y)">Power</a>(m,2.));
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> thetacm=(<a href="../TGenOme.html#TGenOme:ft" title="Double_t TGenOme::ft">ft</a>+fQ2-m*m+2.*q(3)*ecm)/(2.*pcm*q.P());
+
+  <span class="keyword">if</span> (thetacm&gt;1.) thetacm=1.;
+  <span class="keyword">if</span> (thetacm&lt;-1.) thetacm=-1.;
+  thetacm=<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:ACos" title="Double_t TMath::ACos(Double_t x)">ACos</a>(thetacm);
+
+  <span class="keyword">if</span> (!<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>) {
+    <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>=<span class="keyword">new</span> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>(pcm*<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Sin" title="Double_t TMath::Sin(Double_t x)">Sin</a>(thetacm),0.,<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Cos" title="Double_t TMath::Cos(Double_t x)">Cos</a>(thetacm)*pcm,ecm);
+  } <span class="keyword">else</span> {
+    <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:SetPxPyPzE" title="void TLorentzVector::SetPxPyPzE(Double_t px,Double_t py,Double_t pz,Double_t e)">SetPxPyPzE</a>(pcm*<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Sin" title="Double_t TMath::Sin(Double_t x)">Sin</a>(thetacm),0.,<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Cos" title="Double_t TMath::Cos(Double_t x)">Cos</a>(thetacm)*pcm,ecm);
+  }
+
+  <span class="keyword">if</span> (!<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>) {
+    <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>=<span class="keyword">new</span> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>(q.Px()+p.Px()-<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>(),q.Py()+p.Py()-<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>(),q.Pz()+p.Pz()-<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>(),q.E()+p.E()-<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:E" title="Double_t TLorentzVector::E()">E</a>());
+  } <span class="keyword">else</span> {
+    <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:SetPxPyPzE" title="void TLorentzVector::SetPxPyPzE(Double_t px,Double_t py,Double_t pz,Double_t e)">SetPxPyPzE</a>(q.Px()+p.Px()-<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>(),q.Py()+p.Py()-<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>(),q.Pz()+p.Pz()-<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>(),q.E()+p.E()-<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:E" title="Double_t TLorentzVector::E()">E</a>());
+  }
+
+  <span class="comment">// Rotation back</span>
+  <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Rotate" title="void TLorentzVector::Rotate(Double_t a,const TVector3&amp; v)">Rotate</a>(-angle,perpvec.Unit());
+  <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Rotate" title="void TLorentzVector::Rotate(Double_t a,const TVector3&amp; v)">Rotate</a>(-angle,perpvec.Unit());
+  q.Rotate(-angle,perpvec.Unit());
+  
+  <span class="comment">// Boost to lab</span>
+  <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Boost" title="void TLorentzVector::Boost(Double_t ,Double_t ,Double_t ) or overloads">Boost</a>(cms.BoostVector());
+  <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Boost" title="void TLorentzVector::Boost(Double_t ,Double_t ,Double_t ) or overloads">Boost</a>(cms.BoostVector());
+  q.Boost(cms.BoostVector());
+
+  <span class="comment">// Now we have k along Oz and k' on the xOz plane</span>
+  <span class="comment">// q=k-k' is necessarily on plane as well</span>
+  <span class="comment">// We just have to rotate along Oy to bring q along Oz</span>
+  <span class="comment">// and then rotate everything by phi except</span>
+  <span class="comment">// k and k'. Then we rotate back along Oy.</span>
+
+  angle=(q.Vect()).Angle(oz);
+
+  <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateY" title="void TLorentzVector::RotateY(Double_t angle)">RotateY</a>(angle);
+  <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateY" title="void TLorentzVector::RotateY(Double_t angle)">RotateY</a>(angle);
+  
+  <a href="../TGenOme.html#TGenOme:fphi" title="Double_t TGenOme::fphi">fphi</a>=2.*<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Pi" title="Double_t TMath::Pi()">Pi</a>()*fRan-&gt;Rndm();   <span class="comment">// phi between 0 and 2pi</span>
+  
+  <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateZ" title="void TLorentzVector::RotateZ(Double_t angle)">RotateZ</a>(<a href="../TGenOme.html#TGenOme:fphi" title="Double_t TGenOme::fphi">fphi</a>);
+  <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateZ" title="void TLorentzVector::RotateZ(Double_t angle)">RotateZ</a>(<a href="../TGenOme.html#TGenOme:fphi" title="Double_t TGenOme::fphi">fphi</a>);
+
+  <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateY" title="void TLorentzVector::RotateY(Double_t angle)">RotateY</a>(-angle);
+  <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateY" title="void TLorentzVector::RotateY(Double_t angle)">RotateY</a>(-angle);
+
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="ALDXz"></a><span class="keyword">void</span> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:TwoBodyDecay" title="void TGenOme::TwoBodyDecay(Double_t M,Double_t m1,Double_t m2)">TwoBodyDecay</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> M, <a href="../ListOfTypes.html#Double_t">Double_t</a> m1, <a href="../ListOfTypes.html#Double_t">Double_t</a> m2)
+{
+  <span class="comment">// ome decay in gamma pi0</span>
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> masses[2];
+  masses[0]=0.1349766; <span class="comment">// pi0</span>
+  masses[1]=0;  <span class="comment">// gam</span>
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> masses2[2];
+  masses2[0]=0.; <span class="comment">// gamma</span>
+  masses2[1]=0.;  <span class="comment">// gamma</span>
+
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> toto1;
+
+  toto1.SetPx(<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>());
+  toto1.SetPy(<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>());
+  toto1.SetPz(<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>());
+  toto1.SetE(<a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:E" title="Double_t TLorentzVector::E()">E</a>());
+
+  <a href="http://root.cern.ch/root/html/TGenPhaseSpace.html">TGenPhaseSpace</a> ps;
+      <span class="keyword">if</span> ( !(ps.SetDecay(toto1,2,masses,<span class="string">""</span>)) ) {
+        <a href="../ListOfTypes.html#ostream">cout</a> &lt;&lt; <span class="string">"Error in phase space generation"</span> &lt;&lt; endl;
+      }
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> wei = ps.Generate();
+
+  <span class="keyword">if</span>(!<a href="../TGenOme.html#TGenOme:fpi0" title="TLorentzVector* TGenOme::fpi0">fpi0</a>)<a href="../TGenOme.html#TGenOme:fpi0" title="TLorentzVector* TGenOme::fpi0">fpi0</a>=<span class="keyword">new</span> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>();
+  <span class="keyword">if</span>(!<a href="../TGenOme.html#TGenOme:fgam" title="TLorentzVector* TGenOme::fgam">fgam</a>)<a href="../TGenOme.html#TGenOme:fgam" title="TLorentzVector* TGenOme::fgam">fgam</a>=<span class="keyword">new</span> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>();
+
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> *q0decay = ps.GetDecay(0);
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> *qpdecay = ps.GetDecay(1);
+  <a href="../TGenOme.html#TGenOme:fpi0" title="TLorentzVector* TGenOme::fpi0">fpi0</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:SetPxPyPzE" title="void TLorentzVector::SetPxPyPzE(Double_t px,Double_t py,Double_t pz,Double_t e)">SetPxPyPzE</a>(q0decay-&gt;Px(),q0decay-&gt;Py(),q0decay-&gt;Pz(),q0decay-&gt;E());
+  <a href="../TGenOme.html#TGenOme:fgam" title="TLorentzVector* TGenOme::fgam">fgam</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:SetPxPyPzE" title="void TLorentzVector::SetPxPyPzE(Double_t px,Double_t py,Double_t pz,Double_t e)">SetPxPyPzE</a>(qpdecay-&gt;Px(),qpdecay-&gt;Py(),qpdecay-&gt;Pz(),qpdecay-&gt;E());
+
+  <a href="../TGenOme.html#TGenOme:fPSF" title="Double_t TGenOme::fPSF">fPSF</a>*=wei;
+
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> toto2;
+
+  toto2.SetPx(<a href="../TGenOme.html#TGenOme:fpi0" title="TLorentzVector* TGenOme::fpi0">fpi0</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>());
+  toto2.SetPy(<a href="../TGenOme.html#TGenOme:fpi0" title="TLorentzVector* TGenOme::fpi0">fpi0</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>());
+  toto2.SetPz(<a href="../TGenOme.html#TGenOme:fpi0" title="TLorentzVector* TGenOme::fpi0">fpi0</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>());
+  toto2.SetE(<a href="../TGenOme.html#TGenOme:fpi0" title="TLorentzVector* TGenOme::fpi0">fpi0</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:E" title="Double_t TLorentzVector::E()">E</a>());
+
+  <a href="http://root.cern.ch/root/html/TGenPhaseSpace.html">TGenPhaseSpace</a> ps2;
+      <span class="keyword">if</span> ( !(ps2.SetDecay(toto2,2,masses2,<span class="string">""</span>)) ) {
+        <a href="../ListOfTypes.html#ostream">cout</a> &lt;&lt; <span class="string">"Error in phase space generation"</span> &lt;&lt; endl;
+      }
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> wei2 = ps2.Generate();
+
+  <span class="keyword">if</span>(!<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>)<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>=<span class="keyword">new</span> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>();
+  <span class="keyword">if</span>(!<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>)<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>=<span class="keyword">new</span> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>();
+
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> *q1decay = ps2.GetDecay(0);
+  <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a> *q2decay = ps2.GetDecay(1);
+
+  <a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:SetPxPyPzE" title="void TLorentzVector::SetPxPyPzE(Double_t px,Double_t py,Double_t pz,Double_t e)">SetPxPyPzE</a>(q1decay-&gt;Px(),q1decay-&gt;Py(),q1decay-&gt;Pz(),q1decay-&gt;E());
+  <a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:SetPxPyPzE" title="void TLorentzVector::SetPxPyPzE(Double_t px,Double_t py,Double_t pz,Double_t e)">SetPxPyPzE</a>(q2decay-&gt;Px(),q2decay-&gt;Py(),q2decay-&gt;Pz(),q2decay-&gt;E());
+
+  <a href="../TGenOme.html#TGenOme:fPSF" title="Double_t TGenOme::fPSF">fPSF</a>*=wei2;
+
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="YMaH5E"></a><span class="keyword">void</span> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:ApplySpecVerAcc" title="void TGenOme::ApplySpecVerAcc(Double_t aav=-1.)">ApplySpecVerAcc</a>(<a href="../ListOfTypes.html#Double_t">Double_t</a> aav)
+{
+  <span class="comment">// Applies vertical spectrometer acceptance by rotating all 4-vectors</span>
+  <span class="comment">// around the beam axis. An angle can be specified, otherwise it's generated</span>
+  <span class="comment">// randomly between spectrometer acceptances</span>
+
+  <a href="../ListOfTypes.html#Double_t">Double_t</a> av=aav;
+  <span class="keyword">if</span>(aav==-1.) {
+    av=-fSpecVerAcc+2.*fSpecVerAcc*fRan-&gt;Rndm();
+    av*=1/<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Sin" title="Double_t TMath::Sin(Double_t x)">Sin</a>(fSpecAngle);
+  }
+  <a href="../TGenBase.html">TGenBase</a>::<a href="../TGenBase.html#TGenBase:ApplySpecVerAcc" title="void TGenBase::ApplySpecVerAcc(Double_t aav)">ApplySpecVerAcc</a>(av);
+  <a href="../TGenOme.html#TGenOme:fome" title="TLorentzVector* TGenOme::fome">fome</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateZ" title="void TLorentzVector::RotateZ(Double_t angle)">RotateZ</a>(av);
+  <a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateZ" title="void TLorentzVector::RotateZ(Double_t angle)">RotateZ</a>(av);
+  <a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateZ" title="void TLorentzVector::RotateZ(Double_t angle)">RotateZ</a>(av);
+  <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:RotateZ" title="void TLorentzVector::RotateZ(Double_t angle)">RotateZ</a>(av);
+  <span class="comment">//fe-&gt;RotateZ(av);</span>
+  fq-&gt;RotateZ(av);
+  
+  <a href="../TGenOme.html#TGenOme:fPSF" title="Double_t TGenOme::fPSF">fPSF</a>*=2.*fSpecVerAcc/<a href="http://root.cern.ch/root/html/TMath.html">TMath</a>::<a href="http://root.cern.ch/root/html/TMath.html#TMath:Sin" title="Double_t TMath::Sin(Double_t x)">Sin</a>(fSpecAngle);
+
+  <span class="comment">// Remark:</span>
+  <span class="comment">// The right phasespace factor is</span>
+  <span class="comment">// dx.dq2.dt.dphi.dphie/2pi (because the x-section code gives </span>
+  <span class="comment">// phi_e-integrated x-sections) but dphi=2pi, so it simplifies to</span>
+  <span class="comment">// dx.dq2.dt.dphie</span>
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="sixIFE"></a> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:GetFinalPhoton1" title="TLorentzVector* TGenOme::GetFinalPhoton1()">GetFinalPhoton1</a>(<span class="keyword">void</span>)
+{
+  <span class="comment">// Returns the final photon1 4-vector if it exists</span>
+  
+  <span class="keyword">if</span>(!<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>) <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"Warning : Final photon 1 doesn't exist"</span>&lt;&lt;endl;
+  <span class="keyword">return</span> <a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>;
+
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="wixIFE"></a> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:GetFinalPhoton2" title="TLorentzVector* TGenOme::GetFinalPhoton2()">GetFinalPhoton2</a>(<span class="keyword">void</span>)
+{
+  <span class="comment">// Returns the final photon2 4-vector if it exists</span>
+  
+  <span class="keyword">if</span>(!<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>) <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"Warning : Final photon 2 doesn't exist"</span>&lt;&lt;endl;
+  <span class="keyword">return</span> <a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>;
+
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="s0F2UB"></a> <a href="http://root.cern.ch/root/html/TLorentzVector.html">TLorentzVector</a>* <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:GetFinalProton" title="TLorentzVector* TGenOme::GetFinalProton()">GetFinalProton</a>(<span class="keyword">void</span>)
+{
+  <span class="comment">// Returns the final photon 4-vector if it exists</span>
+  
+  <span class="keyword">if</span>(!<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>) <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"Warning : Final proton doesn't exist"</span>&lt;&lt;endl;
+  <span class="keyword">return</span> <a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>;
+
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="N6v45B"></a><span class="keyword">void</span> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:Write2File" title="void TGenOme::Write2File()">Write2File</a>(<span class="keyword">void</span>)
+{
+
+  <span class="keyword">if</span>(!fNwrite) {
+    <span class="keyword">if</span>(!fFermi) {
+      fNwrite=21;
+    }<span class="keyword">else</span>{
+      fNwrite=21+3;
+    }
+  }
+  
+  *output&lt;&lt;fVertex-&gt;Pz()&lt;&lt;<span class="string">" "</span>;
+  *output&lt;&lt;feini-&gt;Pz()&lt;&lt;<span class="string">" "</span>;
+  *output&lt;&lt;feprerad-&gt;Px()&lt;&lt;<span class="string">" "</span>&lt;&lt;feprerad-&gt;Py()&lt;&lt;<span class="string">" "</span>&lt;&lt;feprerad-&gt;Pz()&lt;&lt;<span class="string">" "</span>;
+  <span class="keyword">if</span>(fFermi)
+    *output&lt;&lt;fpini-&gt;Px()&lt;&lt;<span class="string">" "</span>&lt;&lt;fpini-&gt;Py()&lt;&lt;<span class="string">" "</span>&lt;&lt;fpini-&gt;Pz()&lt;&lt;<span class="string">" "</span>;
+  *output&lt;&lt;fe-&gt;Px()&lt;&lt;<span class="string">" "</span>&lt;&lt;fe-&gt;Py()&lt;&lt;<span class="string">" "</span>&lt;&lt;fe-&gt;Pz()&lt;&lt;<span class="string">" "</span>;
+  *output&lt;&lt;<a href="../TGenOme.html#TGenOme:fgam" title="TLorentzVector* TGenOme::fgam">fgam</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>()&lt;&lt;<span class="string">" "</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fgam" title="TLorentzVector* TGenOme::fgam">fgam</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>()&lt;&lt;<span class="string">" "</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fgam" title="TLorentzVector* TGenOme::fgam">fgam</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>()&lt;&lt;<span class="string">" "</span>;
+  *output&lt;&lt;<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>()&lt;&lt;<span class="string">" "</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>()&lt;&lt;<span class="string">" "</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>()&lt;&lt;<span class="string">" "</span>;
+  *output&lt;&lt;<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>()&lt;&lt;<span class="string">" "</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>()&lt;&lt;<span class="string">" "</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>()&lt;&lt;<span class="string">" "</span>;
+  *output&lt;&lt;<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>()&lt;&lt;<span class="string">" "</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>()&lt;&lt;<span class="string">" "</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>()&lt;&lt;<span class="string">" "</span>;
+  *output&lt;&lt; <a href="../TGenOme.html#TGenOme:fPSF" title="Double_t TGenOme::fPSF">fPSF</a>;
+  *output&lt;&lt;endl;
+
+
+
+}
+
+<span class="comment">//_____________________________________________________________________________</span>
+<a name="e5MuzE"></a> <span class="keyword">void</span> <a href="../TGenOme.html">TGenOme</a>::<a href="../TGenOme.html#TGenOme:Print" title="void TGenOme::Print(char* opt=&quot;&quot;)">Print</a>(<span class="keyword">char</span>* opt)
+{
+  <span class="comment">// Output on screen. If option <span class="string">"all"</span> is specified the complete setup of the</span>
+  <span class="comment">// event is printed out. By default only the final state 4-vectors and the </span>
+  <span class="comment">// virtual photon are displayed.</span>
+
+  <a href="http://root.cern.ch/root/html/TString.html">TString</a> option=opt;
+  <span class="keyword">if</span>(option.Contains(<span class="string">"all"</span>)) <a href="../TGenBase.html">TGenBase</a>::<a href="../TGenBase.html#TGenBase:Print" title="void TGenBase::Print(char* opt=&quot;&quot;)">Print</a>();
+  <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"======================================="</span>&lt;&lt;endl;
+  <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"        4-vectors (Px,Py,Pz,E)         "</span>&lt;&lt;endl;
+  <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"======================================="</span>&lt;&lt;endl;
+  <span class="keyword">if</span>(feini) {
+<a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"e("</span>&lt;&lt;feini-&gt;Px()&lt;&lt;<span class="string">","</span>&lt;&lt;feini-&gt;Py()&lt;&lt;<span class="string">","</span>&lt;&lt;feini-&gt;Pz()&lt;&lt;<span class="string">","</span>&lt;&lt;feini-&gt;E()&lt;&lt;<span class="string">")"</span>&lt;&lt;endl;
+  }<span class="keyword">else</span>{
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"NO INITIAL ELECTRON DEFINED"</span>&lt;&lt;endl;
+  }
+  <span class="keyword">if</span>(fpini){
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"p("</span>&lt;&lt;fpini-&gt;Px()&lt;&lt;<span class="string">","</span>&lt;&lt;fpini-&gt;Py()&lt;&lt;<span class="string">","</span>&lt;&lt;fpini-&gt;Pz()&lt;&lt;<span class="string">","</span>&lt;&lt;fpini-&gt;E()&lt;&lt;<span class="string">")"</span>&lt;&lt;endl;
+  }<span class="keyword">else</span>{
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"NO INITIAL TARGET PARTICLE DEFINED"</span>&lt;&lt;endl;
+  }
+  <span class="keyword">if</span>(fq){
+  <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"g*("</span>&lt;&lt;fq-&gt;Px()&lt;&lt;<span class="string">","</span>&lt;&lt;fq-&gt;Py()&lt;&lt;<span class="string">","</span>&lt;&lt;fq-&gt;Pz()&lt;&lt;<span class="string">","</span>&lt;&lt;fq-&gt;E()&lt;&lt;<span class="string">")"</span>&lt;&lt;endl;
+  }<span class="keyword">else</span>{
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"NO VIRTUAL PHOTON DEFINED"</span>&lt;&lt;endl;
+  }
+  <span class="keyword">if</span>(fe){
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"e'("</span>&lt;&lt;fe-&gt;Px()&lt;&lt;<span class="string">","</span>&lt;&lt;fe-&gt;Py()&lt;&lt;<span class="string">","</span>&lt;&lt;fe-&gt;Pz()&lt;&lt;<span class="string">","</span>&lt;&lt;fe-&gt;E()&lt;&lt;<span class="string">")"</span>&lt;&lt;endl;
+  }<span class="keyword">else</span>{
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"NO SCATTERED ELECTRON DEFINED"</span>&lt;&lt;endl;
+  }
+  <span class="keyword">if</span>(<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>){
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"g1("</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg1" title="TLorentzVector* TGenOme::fg1">fg1</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:E" title="Double_t TLorentzVector::E()">E</a>()&lt;&lt;<span class="string">")"</span>&lt;&lt;endl;
+  }<span class="keyword">else</span>{
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"NO EMITTED PHOTON 1 DEFINED"</span>&lt;&lt;endl;
+  }
+  <span class="keyword">if</span>(<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>){
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"g2("</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fg2" title="TLorentzVector* TGenOme::fg2">fg2</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:E" title="Double_t TLorentzVector::E()">E</a>()&lt;&lt;<span class="string">")"</span>&lt;&lt;endl;
+  }<span class="keyword">else</span>{
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"NO EMITTED PHOTON 2 DEFINED"</span>&lt;&lt;endl;
+  }
+  <span class="keyword">if</span>(<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>){
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"p'("</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Px" title="Double_t TLorentzVector::Px()">Px</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Py" title="Double_t TLorentzVector::Py()">Py</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:Pz" title="Double_t TLorentzVector::Pz()">Pz</a>()&lt;&lt;<span class="string">","</span>&lt;&lt;<a href="../TGenOme.html#TGenOme:fp" title="TLorentzVector* TGenOme::fp">fp</a>-><a href="http://root.cern.ch/root/html/TLorentzVector.html#TLorentzVector:E" title="Double_t TLorentzVector::E()">E</a>()&lt;&lt;<span class="string">")"</span>&lt;&lt;endl;
+  }<span class="keyword">else</span>{
+    <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"NO RECOIL PARTICLE DEFINED"</span>&lt;&lt;endl;
+  }
+  <a href="../ListOfTypes.html#ostream">cout</a>&lt;&lt;<span class="string">"======================================="</span>&lt;&lt;endl;
+}
+</pre>
+
+<br />
+<!--SIGNATURE-->
+
+<em>Last update: Thu Aug 30 11:59:55 2012</em><br />
+
+<hr />
+<em>
+This page has been automatically generated. If you have any comments or suggestions about the page layout send a mail to <a href="mailto:rootdev@root.cern.ch">ROOT support</a>, or contact <a href="mailto:rootdev@root.cern.ch">the developers</a> with any questions or problems regarding ROOT.
+</em>
+</body>
+</html>

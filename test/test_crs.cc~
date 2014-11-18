@@ -1,0 +1,28 @@
+#include <TF2.h>
+#include <iostream>
+#include "TGVKelly.h"
+#include <TCanvas.h>
+#include <TSystem.h>
+#include <TFile.h>
+#include <TH2D.h>
+#include <fstream>
+
+using namespace std;
+
+//Initialization of TGV and read data file
+
+Double_t ****V=new Double_t***[8];
+Double_t *CFF=new Double_t[8];
+
+//===========================================================
+
+void Read_File();
+Double_t* Interpol_CFF(Double_t, Double_t, Double_t );
+double BH(double *, double *);
+double VCS_INT_sum(double *, double *);
+double VCS_INT_dif(double *, double *);
+
+int main()
+{
+  
+}

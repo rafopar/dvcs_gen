@@ -1,0 +1,2 @@
+cd $TMPBATCH
+cp /afs/in2p3.fr/home/throng/clas/franck/last/dvcs/gen/deut_momdist.dat .

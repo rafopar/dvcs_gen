@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+
+print STDOUT "Generating sub files...\n";
+
+$randomfile='random.gen';
+
+open (RADM,"<$randomfile");
+
+$i=0;
+
+while(<RADM>) {
+    $i++;
+    ($r1,$r2)=split;
+    print STDOUT "Random numbers for sub$i : $r1 and $r2\n";
+    $outfile='toto';
+    open (OUTF,">sub$i");
+    print OUTF "cd \$TMPBATCH\n";
+    print OUTF "cp /afs/in2p3.fr/home/throng/clas/franck/last/dvcs/gen/deut_momdist.dat .\n";
+    print OUTF "/afs/in2p3.fr/home/throng/clas/franck/last/dvcs/gen/Gen $r1 $r2\n";
+    print OUTF "mv outdvcs.txt /sps/clas/franck/gdvcsprod/dvcsnew/out3_$i.txt\n";
+    close OUTF;
+}
+close RADM;
